@@ -1,13 +1,11 @@
 import AnimatedContainer from "@/components/animated-transitions/AnimatedContainer";
-import Link from "next/link";
+import AnimatedLink from "@/components/link/AnimatedLink";
 
 export default function Test() {
   return (
     <AnimatedContainer>
-      <main>
-        <h1>Test!</h1>
-        <Link href="/">Goto /</Link>
-      </main>
+      <h1>Test!</h1>
+      <AnimatedLink href="/">Goto /</AnimatedLink>
     </AnimatedContainer>
   );
 }

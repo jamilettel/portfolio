@@ -2,20 +2,30 @@
 
 import { useTransitionContext } from "@/contexts/TransitionContext";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import "./AnimatedContainer.scss";
 
 export default function AnimatedContainer({
   children,
+  className,
 }: {
   children: React.ReactNode;
+  className?: string;
 }) {
-  const { setChildren } = useTransitionContext();
+  const { savedChildren, savedId: savedPathname } = useTransitionContext();
   const pathname = usePathname();
 
-  useEffect(() => {
-    console.log(pathname, children);
-    return () => setChildren(children, pathname);
-  }, []);
-
-  return <>{children}</>;
+  return (
+    <>
+      <main id={pathname} className={className}>
+        {children}
+      </main>
+      {savedChildren && (
+        <main
+          dangerouslySetInnerHTML={{ __html: savedChildren.innerHTML }}
+          id={savedPathname}
+          className={`${savedChildren.className ?? ""} animate-out`}
+        />
+      )}
+    </>
+  );
 }
