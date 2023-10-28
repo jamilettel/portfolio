@@ -3,18 +3,14 @@
         transform: translateX(0);
     }
 
-    20% {
-        transform: translateX(0);
-    }
-
     100% {
-        transform: translateX(-100vw);
+        transform: translateX(100vw);
     }
 }
 
 @keyframes test-in {
     0% {
-        transform: translateX(-100vw);
+        transform: translateX(100vw);
     }
 
     100% {
@@ -23,18 +19,27 @@
 }
 
 .test-content {
+    overflow: hidden;
+
     .content {
         background: #171717cc;
         width: 1200px;
         margin: 32px auto;
         padding: 32px;
-        transition: 500ms;
-        animation: test-in 500ms ease-in forwards;
+        transform: translateX(-100vw);
+        animation: test-in 1000ms ease-out forwards;
+        animation-delay: 200ms;
+
+        h1 {
+            margin-top: 0;
+        }
     }
 }
 
 .animate-out.test-content {
     .content {
-        animation: test-out 500ms ease-out forwards;
+        transform: translateX(0);
+        animation: test-out 1000ms ease-out forwards;
+        animation-delay: 200ms;
     }
 }

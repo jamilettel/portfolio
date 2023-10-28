@@ -25,7 +25,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   const [transitionLength, setTransitionLength] = useState(0);
   const router = useRouter();
 
-  function updateContent(elementId: string, transitionLength: number = 500) {
+  function updateContent(elementId: string, transitionLength: number = 1000) {
     setSavedChildren(document.getElementById(elementId));
     saveId(elementId);
     setTransitionLength(transitionLength);

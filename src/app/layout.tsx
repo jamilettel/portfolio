@@ -1,9 +1,9 @@
 import { TransitionProvider } from "@/contexts/TransitionContext";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Ubuntu_Mono } from "next/font/google";
+import "./globals.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const mono = Ubuntu_Mono({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Jamil Ettel",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mono.className}>
         <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>

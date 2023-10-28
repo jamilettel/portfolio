@@ -6,8 +6,8 @@ export default function Test() {
   return (
     <AnimatedContainer className="test-content">
       <div className="content">
-        <h1>Test!</h1>
-        <AnimatedLink href="/">Goto /</AnimatedLink>
+        <h1>Welcome to the test page.</h1>
+        <AnimatedLink href="/">Go back</AnimatedLink>
       </div>
     </AnimatedContainer>
   );
