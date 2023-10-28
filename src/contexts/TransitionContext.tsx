@@ -11,10 +11,10 @@ interface TransitionContextProps {
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
-  updateContent() {},
+  updateContent() { },
   savedChildren: null,
   fadeOut: false,
-  clearContent() {},
+  clearContent() { },
 });
 
 function TransitionProvider({ children }: { children: React.ReactNode }) {

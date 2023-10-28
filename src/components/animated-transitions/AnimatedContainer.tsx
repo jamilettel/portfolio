@@ -11,7 +11,7 @@ export default function AnimatedContainer({
   children: React.ReactNode;
   className?: string;
 }) {
-  const { savedChildren, savedId: savedPathname } = useTransitionContext();
+  const { savedChildren, savedId } = useTransitionContext();
   const pathname = usePathname();
 
   return (
@@ -22,7 +22,7 @@ export default function AnimatedContainer({
       {savedChildren && (
         <main
           dangerouslySetInnerHTML={{ __html: savedChildren.innerHTML }}
-          id={savedPathname}
+          id={savedId}
           className={`${savedChildren.className ?? ""} animate-out`}
         />
       )}
