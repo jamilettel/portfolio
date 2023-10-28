@@ -27,9 +27,6 @@
         width: 1200px;
         margin: 32px auto;
         padding: 32px;
-        transform: translateX(-100vw);
-        animation: home-in 1000ms ease-out forwards;
-        animation-delay: 200ms;
 
         h1 {
             margin-top: 0;
@@ -37,10 +34,16 @@
     }
 }
 
+.animate-in-test.main-content {
+    transform: translateX(-100vw);
+    animation: home-in 800ms ease-out forwards;
+    animation-delay: 200ms;
+}
+
 .animate-out.main-content {
     .content {
         transform: translateX(0);
-        animation: home-out 1000ms ease-out forwards;
+        animation: home-out 800ms ease-out forwards;
         animation-delay: 200ms;
     }
 }
