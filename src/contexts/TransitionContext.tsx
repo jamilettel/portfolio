@@ -7,13 +7,13 @@ interface TransitionContextProps {
   savedId?: string;
   savedChildren: HTMLElement | null;
   clearContent: () => void;
-  fadeOut: boolean;
+  animateOutUnknown: boolean;
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
   updateContent() { },
   savedChildren: null,
-  fadeOut: false,
+  animateOutUnknown: false,
   clearContent() { },
 });
 
@@ -21,7 +21,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [savedChildren, setSavedChildren] = useState<HTMLElement | null>(null);
   const [savedId, saveId] = useState<string>();
-  const [fadeOut, setFadeOut] = useState(false);
+  const [animateOutUnknown, setAnimateOutUnknown] = useState(false);
   const [transitionLength, setTransitionLength] = useState(0);
   const router = useRouter();
 
@@ -39,10 +39,10 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     window.onpopstate = () => {
       if (history.state.redirect !== false) {
-        setFadeOut(true);
+        setAnimateOutUnknown(true);
         setTimeout(() => {
           router.back();
-        }, 200);
+        }, 1000);
       }
     };
   }, []);
@@ -66,7 +66,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
         updateContent,
         savedChildren,
         savedId,
-        fadeOut,
+        animateOutUnknown,
         clearContent,
       }}
     >

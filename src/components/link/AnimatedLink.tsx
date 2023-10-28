@@ -1,5 +1,6 @@
 "use client";
 import { useTransitionContext } from "@/contexts/TransitionContext";
+import { getIdFromPathname } from "@/utils/animated-utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,7 +17,7 @@ export default function AnimatedLink({
   return (
     <Link
       onClick={() => {
-        updateContent(pathname);
+        updateContent(getIdFromPathname(pathname));
       }}
       href={href}
     >
