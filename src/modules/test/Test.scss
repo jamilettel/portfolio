@@ -18,6 +18,26 @@
     }
 }
 
+@keyframes test-fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes test-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .test-content {
     overflow: hidden;
 
@@ -42,10 +62,26 @@
     }
 }
 
-.animate-out.test-content {
+.animate-out-index.test-content {
     .content {
         transform: translateX(0);
         animation: test-out 800ms ease-out forwards;
+        animation-delay: 200ms;
+    }
+}
+
+.animate-out-unknown.test-content {
+    .content {
+        opacity: 1;
+        animation: test-fade-out 800ms ease-out forwards;
+        animation-delay: 200ms;
+    }
+}
+
+.animate-in-unknown.test-content {
+    .content {
+        opacity: 0;
+        animation: test-fade-in 800ms ease-out forwards;
         animation-delay: 200ms;
     }
 }

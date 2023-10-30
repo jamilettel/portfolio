@@ -13,13 +13,15 @@ export default function AnimatedContainer({
   children: React.ReactNode;
   className?: string;
 }) {
-  const { savedChildren, savedId, animateOutUnknown } = useTransitionContext();
+  const { savedChildren, savedId, animateOutUnknown, animateInUnknown } = useTransitionContext();
   const pathname = usePathname();
   const currentId = useMemo(() => getIdFromPathname(pathname), []);
 
   let finalClassname = className;
   if (animateOutUnknown) {
     finalClassname += ' animate-out animate-out-unknown';
+  } else if (animateInUnknown) {
+    finalClassname += ' animate-in animate-in-unknown';
   } else if (savedId && savedId !== currentId) {
     finalClassname += ` animate-in animate-in-${savedId}`;
   }

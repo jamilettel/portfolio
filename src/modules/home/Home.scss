@@ -18,6 +18,26 @@
     }
 }
 
+@keyframes home-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes home-fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .main-content {
     overflow: hidden;
 
@@ -34,13 +54,27 @@
     }
 }
 
-.animate-in-test.main-content {
-    transform: translateX(-100vw);
-    animation: home-in 800ms ease-out forwards;
+.animate-in-unknown.main-content {
+    opacity: 0;
+    animation: home-fade-in 800ms ease-out forwards;
     animation-delay: 200ms;
 }
 
-.animate-out.main-content {
+.animate-out-unknown.main-content {
+    opacity: 1;
+    animation: home-fade-out 800ms ease-out forwards;
+    animation-delay: 200ms;
+}
+
+.animate-in-test.main-content {
+    .content {
+        transform: translateX(-100vw);
+        animation: home-in 800ms ease-out forwards;
+        animation-delay: 200ms;
+    }
+}
+
+.animate-out-test.main-content {
     .content {
         transform: translateX(0);
         animation: home-out 800ms ease-out forwards;
