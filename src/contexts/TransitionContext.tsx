@@ -2,8 +2,6 @@
 import { usePathname, useRouter } from "next/navigation";
 import React, { createContext, useEffect, useState } from "react";
 
-const ANIMATE_IN_LOCAL_STORAGE = "transition-animate-in-unknown";
-
 interface TransitionContextProps {
   updateContent: (elementId: string, transitionLength?: number) => void;
   savedId?: string;
@@ -26,8 +24,8 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   const [savedChildren, setSavedChildren] = useState<HTMLElement | null>(null);
   const [savedId, saveId] = useState<string>();
   const [animateOutUnknown, setAnimateOutUnknown] = useState(false);
-  const [animateInUnknown, setAnimateInUnknown] = useState<boolean>(
-    () => localStorage.getItem(ANIMATE_IN_LOCAL_STORAGE) === "true"
+  const [animateInUnknown, setAnimateInUnknown] = useState(
+    savedId === undefined
   );
   const [transitionLength, setTransitionLength] = useState(0);
   const router = useRouter();
@@ -47,9 +45,8 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
     window.onpopstate = () => {
       if (history.state.redirect !== false) {
         setAnimateOutUnknown(true);
-        localStorage.setItem(ANIMATE_IN_LOCAL_STORAGE, "true");
         setTimeout(() => {
-          router.back();
+          history.back();
         }, 1000);
       }
     };
@@ -71,7 +68,6 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setTimeout(() => {
       setAnimateInUnknown(false);
-      localStorage.removeItem(ANIMATE_IN_LOCAL_STORAGE);
     }, 1000);
   }, [animateInUnknown]);
 
