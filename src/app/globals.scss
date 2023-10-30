@@ -1,23 +1,23 @@
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: #ffffff;
+
+  --text-block-bg: #ddddddcc;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 10, 10, 10;
-    --background-end-rgb: 10, 10, 10;
+    --background: #0a0a0a;
+
+    --text-block-bg: #171717cc;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   margin: 0;
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: var(--background);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

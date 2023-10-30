@@ -1,83 +1,83 @@
 @keyframes home-out {
-    0% {
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(0);
+  }
 
-    100% {
-        transform: translateX(-100vw);
-    }
+  100% {
+    transform: translateX(-100vw);
+  }
 }
 
 @keyframes home-in {
-    0% {
-        transform: translateX(-100vw);
-    }
+  0% {
+    transform: translateX(-100vw);
+  }
 
-    100% {
-        transform: translateX(0);
-    }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes home-fade-in {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    100% {
-        opacity: 1;
-    }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes home-fade-out {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 .main-content {
-    overflow: hidden;
+  overflow: hidden;
 
-    .content {
-        background: #171717cc;
-        max-width: 100%;
-        width: 1200px;
-        margin: 32px auto;
-        padding: 32px;
+  .content {
+    background: var(--text-block-bg);
+    max-width: 100%;
+    width: 1200px;
+    margin: 32px auto;
+    padding: 32px;
 
-        h1 {
-            margin-top: 0;
-        }
+    h1 {
+      margin-top: 0;
     }
+  }
 }
 
 .animate-in-unknown.main-content {
-    opacity: 0;
-    animation: home-fade-in 800ms ease-out forwards;
-    animation-delay: 200ms;
+  opacity: 0;
+  animation: home-fade-in 800ms ease-out forwards;
+  animation-delay: 200ms;
 }
 
 .animate-out-unknown.main-content {
-    opacity: 1;
-    animation: home-fade-out 800ms ease-out forwards;
-    animation-delay: 200ms;
+  opacity: 1;
+  animation: home-fade-out 800ms ease-out forwards;
+  animation-delay: 200ms;
 }
 
 .animate-in-test.main-content {
-    .content {
-        transform: translateX(-100vw);
-        animation: home-in 800ms ease-out forwards;
-        animation-delay: 200ms;
-    }
+  .content {
+    transform: translateX(-100vw);
+    animation: home-in 800ms ease-out forwards;
+    animation-delay: 200ms;
+  }
 }
 
 .animate-out-test.main-content {
-    .content {
-        transform: translateX(0);
-        animation: home-out 800ms ease-out forwards;
-        animation-delay: 200ms;
-    }
+  .content {
+    transform: translateX(0);
+    animation: home-out 800ms ease-out forwards;
+    animation-delay: 200ms;
+  }
 }

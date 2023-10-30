@@ -14,11 +14,11 @@ interface TransitionContextProps {
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
-  updateContent() { },
+  updateContent() {},
   savedChildren: null,
   animateOutUnknown: false,
   animateInUnknown: false,
-  clearContent() { },
+  clearContent() {},
 });
 
 function TransitionProvider({ children }: { children: React.ReactNode }) {
@@ -26,8 +26,8 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   const [savedChildren, setSavedChildren] = useState<HTMLElement | null>(null);
   const [savedId, saveId] = useState<string>();
   const [animateOutUnknown, setAnimateOutUnknown] = useState(false);
-  const [animateInUnknown, setAnimateInUnknown] = useState<boolean>(() =>
-    localStorage.getItem(ANIMATE_IN_LOCAL_STORAGE) === "true"
+  const [animateInUnknown, setAnimateInUnknown] = useState<boolean>(
+    () => localStorage.getItem(ANIMATE_IN_LOCAL_STORAGE) === "true"
   );
   const [transitionLength, setTransitionLength] = useState(0);
   const router = useRouter();
