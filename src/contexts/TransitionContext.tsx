@@ -2,18 +2,24 @@
 import { usePathname, useRouter } from "next/navigation";
 import React, { createContext, useEffect, useState } from "react";
 
+type ScrollPosition = {
+  top: number;
+  left: number;
+};
+
 interface TransitionContextProps {
   updateContent: (elementId: string, transitionLength?: number) => void;
   savedId?: string;
-  savedChildren: HTMLElement | null;
+  savedElements: HTMLElement | null;
   clearContent: () => void;
   animateOutUnknown: boolean;
   animateInUnknown: boolean;
+  scrollPosition?: ScrollPosition;
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
   updateContent() {},
-  savedChildren: null,
+  savedElements: null,
   animateOutUnknown: false,
   animateInUnknown: false,
   clearContent() {},
@@ -21,24 +27,33 @@ const TransitionContext = createContext<TransitionContextProps>({
 
 function TransitionProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [savedChildren, setSavedChildren] = useState<HTMLElement | null>(null);
+  const [savedElements, setSavedElements] = useState<HTMLElement | null>(null);
   const [savedId, saveId] = useState<string>();
+  const [scrollPosition, setScrollPosition] = useState<{
+    top: number;
+    left: number;
+  }>();
   const [animateOutUnknown, setAnimateOutUnknown] = useState(false);
   const [animateInUnknown, setAnimateInUnknown] = useState(
     savedId === undefined
   );
   const [transitionLength, setTransitionLength] = useState(0);
-  const router = useRouter();
 
   function updateContent(elementId: string, transitionLength: number = 1000) {
-    setSavedChildren(document.getElementById(elementId));
+    const elem = document.getElementById(elementId);
+    setSavedElements(elem);
     saveId(elementId);
+    setScrollPosition({
+      left: window.scrollX,
+      top: window.scrollY,
+    });
     setTransitionLength(transitionLength);
   }
 
   function clearContent() {
-    setSavedChildren(null);
+    setSavedElements(null);
     saveId(undefined);
+    setScrollPosition(undefined);
   }
 
   useEffect(() => {
@@ -75,10 +90,11 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
     <TransitionContext.Provider
       value={{
         updateContent,
-        savedChildren,
+        savedElements,
         savedId,
         animateOutUnknown,
         animateInUnknown,
+        scrollPosition,
         clearContent,
       }}
     >

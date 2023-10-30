@@ -3,8 +3,9 @@
 import { useTransitionContext } from "@/contexts/TransitionContext";
 import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname } from "next/navigation";
-import "./AnimatedContainer.scss";
+import Script from "next/script";
 import { useMemo } from "react";
+import "./AnimatedContainer.scss";
 
 export default function AnimatedContainer({
   children,
@@ -13,8 +14,13 @@ export default function AnimatedContainer({
   children: React.ReactNode;
   className?: string;
 }) {
-  const { savedChildren, savedId, animateOutUnknown, animateInUnknown } =
-    useTransitionContext();
+  const {
+    savedElements,
+    savedId,
+    animateOutUnknown,
+    animateInUnknown,
+    scrollPosition,
+  } = useTransitionContext();
   const pathname = usePathname();
   const currentId = useMemo(() => getIdFromPathname(pathname), []);
 
@@ -32,14 +38,20 @@ export default function AnimatedContainer({
       <main id={currentId} className={finalClassname}>
         {children}
       </main>
-      {savedChildren && (
-        <main
-          dangerouslySetInnerHTML={{ __html: savedChildren.innerHTML }}
-          id={savedId}
-          className={`${
-            savedChildren.className ?? ""
-          } animate-out animate-out-${currentId}`}
-        />
+      {savedElements && savedId !== currentId && (
+        <div id="animated-transition">
+          <main
+            dangerouslySetInnerHTML={{ __html: savedElements.innerHTML }}
+            id={savedId}
+            className={`${
+              savedElements.className ?? ""
+            } animate-out animate-out-${currentId}`}
+            style={{
+              top: -(scrollPosition?.top ?? 0),
+              left: -(scrollPosition?.left ?? 0),
+            }}
+          />
+        </div>
       )}
     </>
   );
