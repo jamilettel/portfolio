@@ -40,6 +40,7 @@
 
 .test-content {
   overflow: hidden;
+  max-width: 100%;
 
   .content {
     background: #171717cc;
@@ -56,7 +57,7 @@
 
 .animate-in-index.test-content {
   .content {
-    transform: translateX(-100vw);
+    transform: translateX(100vw);
     animation: test-in 800ms ease-out forwards;
     animation-delay: 200ms;
   }

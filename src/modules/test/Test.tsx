@@ -7,7 +7,7 @@ export default function Test() {
     <AnimatedContainer className="test-content">
       <div className="content">
         <h1>Welcome to the test page.</h1>
-        <div style={{ width: 400 }}>
+        <div style={{ maxWidth: 400 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
           suscipit leo purus, eu porttitor velit sagittis vitae. Cras mauris ex,
           dapibus ac suscipit a, varius faucibus nulla. Class aptent taciti
