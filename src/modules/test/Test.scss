@@ -43,7 +43,6 @@
   max-width: 100%;
 
   .content {
-    background: var(--text-block-bg);
     max-width: 100%;
     width: 1200px;
     margin: 32px auto;
@@ -74,15 +73,13 @@
 .animate-out-unknown.test-content {
   .content {
     opacity: 1;
-    animation: test-fade-out 800ms ease-out forwards;
-    animation-delay: 200ms;
+    animation: test-fade-out 300ms ease-out forwards;
   }
 }
 
 .animate-in-unknown.test-content {
   .content {
     opacity: 0;
-    animation: test-fade-in 800ms ease-out forwards;
-    animation-delay: 200ms;
+    animation: test-fade-in 300ms ease-out forwards;
   }
 }

@@ -1,26 +1,29 @@
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background: #ffffff;
-
-  --text-block-bg: #ddddddcc;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background: #0a0a0a;
-
-    --text-block-bg: #171717cc;
-  }
+  --foreground: #ffffff;
+  --background: #0e0e0e;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--foreground);
   margin: 0;
   background: var(--background);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: #000;
+    position: absolute;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--foreground);
+  }
 }
 
 a {

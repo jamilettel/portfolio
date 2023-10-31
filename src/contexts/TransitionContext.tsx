@@ -62,7 +62,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
         setAnimateOutUnknown(true);
         setTimeout(() => {
           history.back();
-        }, 1000);
+        }, 300);
       }
     };
   }, []);
@@ -83,7 +83,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setTimeout(() => {
       setAnimateInUnknown(false);
-    }, 1000);
+    }, 300);
   }, [animateInUnknown]);
 
   return (
