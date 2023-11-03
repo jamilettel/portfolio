@@ -1,36 +1,32 @@
-:root {
-  --foreground: #ffffff;
-  --background: #0e0e0e;
-}
+@import "base";
 
 body {
-  color: var(--foreground);
+  color: $foreground;
   margin: 0;
-  background: var(--background);
+  background: $background;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 
   &::-webkit-scrollbar {
-    width: 8px;
-    background: #000;
-    position: absolute;
+    width: 4px;
+    background: $background;
   }
 
   &::-webkit-scrollbar-track {
-    background: var(--background);
+    background: $background;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: var(--foreground);
+    background: $foreground;
   }
 }
 
 a {
-  color: #dd0000;
+  color: $accent;
 
   &:hover {
-    color: #ff0000;
+    color: $accent-light;
   }
 }
 

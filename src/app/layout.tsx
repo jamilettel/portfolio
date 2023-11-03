@@ -1,9 +1,7 @@
 import { TransitionProvider } from "@/contexts/TransitionContext";
 import type { Metadata } from "next";
-import { Ubuntu_Mono } from "next/font/google";
 import "./globals.scss";
-
-const mono = Ubuntu_Mono({ subsets: ["latin"], weight: "400" });
+import { mono } from "@/utils/fonts";
 
 export const metadata: Metadata = {
   title: "Jamil Ettel",

@@ -71,15 +71,11 @@
 }
 
 .animate-out-unknown.test-content {
-  .content {
-    opacity: 1;
-    animation: test-fade-out 300ms ease-out forwards;
-  }
+  opacity: 1;
+  animation: test-fade-out 300ms ease-out forwards;
 }
 
 .animate-in-unknown.test-content {
-  .content {
-    opacity: 0;
-    animation: test-fade-in 300ms ease-out forwards;
-  }
+  opacity: 0;
+  animation: test-fade-in 300ms ease-out forwards;
 }

@@ -4,7 +4,8 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: false,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'src')],
+    includePaths: [path.join(__dirname, 'src/styles/')],
+    loadPaths: [path.join(__dirname, 'src/styles/base.scss')],
   },
 };
 
