@@ -42,15 +42,42 @@
 
 .main-content {
   overflow: hidden;
+  display: flex;
+  height: 100vh;
 
   .content {
     max-width: 100%;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
 
     .main-title {
-      margin-top: 0;
+      margin: 0;
       font-size: 96px;
       color: $accent;
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 32px;
+      text-align: right;
+      color: $accent;
+      font-weight: normal;
+    }
+
+    .links {
+      font-size: 64px;
+      margin: auto auto 32px 32px;
+
+      a {
+        text-decoration: none;
+        color: $foreground;
+
+        &:hover {
+          color: $accent;
+        }
+      }
     }
   }
 }
