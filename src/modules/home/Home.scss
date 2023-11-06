@@ -11,6 +11,9 @@
     .links {
       font-size: 64px;
       margin: auto auto 32px 32px;
+      @media (max-width: 900px) {
+        font-size: 48px;
+      }
 
       a {
         text-decoration: none;
