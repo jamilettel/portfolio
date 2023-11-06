@@ -4,7 +4,17 @@
   overflow: hidden;
 
   .content {
-    width: 900px;
+    width: 1200px;
+
+    @media (max-width: 1700px) {
+      width: 1000px;
+    }
+    @media (max-width: 1450px) {
+      width: 900px;
+    }
+    @media (max-width: 1300px) {
+      width: 100%;
+    }
   }
 }
 
