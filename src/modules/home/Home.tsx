@@ -53,17 +53,28 @@ export default function Home() {
     <Layout className="main-content">
       <HomePageTitle />
       <div className="links">
-        Choose a page...
-        <br />
-        <AnimatedLink transitionLength={2500} href="/work">
+        <div className="erase-animation">Choose a page...</div>
+        <AnimatedLink
+          className="erase-animation"
+          transitionLength={2500}
+          href="/work"
+        >
           {"> my_work"}
         </AnimatedLink>
         <br />
-        <AnimatedLink transitionLength={2500} href="/contact">
+        <AnimatedLink
+          className="erase-animation"
+          transitionLength={2500}
+          href="/contact"
+        >
           {"> contact"}
         </AnimatedLink>
         <br />
-        <AnimatedLink transitionLength={2500} href="/about">
+        <AnimatedLink
+          className="erase-animation"
+          transitionLength={2500}
+          href="/about"
+        >
           {"> about"}
         </AnimatedLink>
       </div>
