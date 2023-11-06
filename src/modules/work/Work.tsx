@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/page-header/PageHeader";
+import "./Work.scss";
 
 export default function About() {
   return (

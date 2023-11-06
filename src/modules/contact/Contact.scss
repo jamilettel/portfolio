@@ -1,0 +1,20 @@
+.contact-content.animate-out-about {
+  .content {
+    animation: transition-right 800ms ease-in-out 200ms forwards;
+  }
+}
+.contact-content.animate-in-about {
+  .content {
+    animation: transition-right 800ms ease-in-out 200ms forwards reverse;
+  }
+}
+.contact-content.animate-out-work {
+  .content {
+    animation: transition-left 800ms ease-in-out 200ms forwards;
+  }
+}
+.contact-content.animate-in-work {
+  .content {
+    animation: transition-left 800ms ease-in-out 200ms forwards reverse;
+  }
+}

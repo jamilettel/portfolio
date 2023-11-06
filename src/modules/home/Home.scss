@@ -1,25 +1,5 @@
 @import "base";
 
-@keyframes home-fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes home-fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .main-content {
   display: flex;
   height: 100vh;
@@ -42,14 +22,4 @@
       }
     }
   }
-}
-
-.animate-in-unknown.main-content {
-  opacity: 0;
-  animation: home-fade-in 300ms ease-out forwards;
-}
-
-.animate-out-unknown.main-content {
-  opacity: 1;
-  animation: home-fade-out 300ms ease-out forwards;
 }

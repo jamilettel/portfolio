@@ -1,9 +1,10 @@
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/page-header/PageHeader";
+import "./About.scss";
 
 export default function About() {
   return (
-    <Layout className="work-content">
+    <Layout className="about-content">
       <PageHeader
         nextPageHref="/work"
         nextPageTitle="WORK"

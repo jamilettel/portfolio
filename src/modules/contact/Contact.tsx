@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/page-header/PageHeader";
+import "./Contact.scss";
 
 export default function Contact() {
   return (

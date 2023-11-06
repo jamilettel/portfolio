@@ -1,8 +1,19 @@
 .layout-content {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 
   .content {
     width: 900px;
   }
+}
+
+.animate-in-unknown .content {
+  opacity: 0;
+  animation: fade-in 300ms ease-out forwards;
+}
+
+.animate-out-unknown .content {
+  opacity: 1;
+  animation: fade-out 300ms ease-out forwards;
 }
