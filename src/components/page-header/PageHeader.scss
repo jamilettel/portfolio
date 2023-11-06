@@ -1,0 +1,58 @@
+@import "base";
+
+.page-header {
+  position: relative;
+  display: flex;
+  height: 88px; // 64px + 12px + 12px
+
+  h1 {
+    line-height: 1;
+    margin: 0;
+    color: $background;
+    font-size: 96px;
+    width: 100%;
+    text-align: center;
+    flex: 9;
+  }
+
+  .page-header-button-right,
+  .page-header-button-left {
+    flex: 1;
+    margin: auto 0;
+    color: white;
+    text-decoration: none;
+  }
+
+  .page-header-button-right {
+    text-align: right;
+    margin-right: 24px;
+  }
+
+  .page-header-button-left {
+    margin-left: 24px;
+  }
+
+  .page-header-background {
+    position: absolute;
+    top: 12px;
+    height: 64px;
+    width: 100%;
+    z-index: -1;
+  }
+}
+
+@keyframes page-header-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-in-index {
+  .page-header {
+    opacity: 0;
+    animation: page-header-appear 200ms linear 2000ms forwards;
+  }
+}

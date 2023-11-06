@@ -33,3 +33,24 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.work-color {
+  color: $work-color;
+}
+.work-bg {
+  background: $work-color;
+}
+
+.contact-color {
+  color: $contact-color;
+}
+.contact-bg {
+  background: $contact-color;
+}
+
+.about-color {
+  color: $about-color;
+}
+.about-bg {
+  background: $about-color;
+}

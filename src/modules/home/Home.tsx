@@ -1,7 +1,6 @@
 "use client";
-import AnimatedContainer from "@/components/animated-transitions/AnimatedContainer";
+import Layout from "@/components/layout/Layout";
 import AnimatedLink from "@/components/link/AnimatedLink";
-import Terminal from "@/components/terminal/Terminal";
 import { rubikMonoOne } from "@/utils/fonts";
 import "./Home.scss";
 import "./HomeTitle.scss";
@@ -51,20 +50,23 @@ function HomePageTitle() {
 
 export default function Home() {
   return (
-    <AnimatedContainer className="main-content animate-out-work">
-      <div className="content">
-        <HomePageTitle />
-        <div className="links">
-          Choose a page...
-          <br />
-          <AnimatedLink href="/work">{"> my_work"}</AnimatedLink>
-          <br />
-          <AnimatedLink href="/contact">{"> contact"}</AnimatedLink>
-          <br />
-          <AnimatedLink href="/about">{"> about"}</AnimatedLink>
-        </div>
+    <Layout className="main-content">
+      <HomePageTitle />
+      <div className="links">
+        Choose a page...
+        <br />
+        <AnimatedLink transitionLength={2500} href="/work">
+          {"> my_work"}
+        </AnimatedLink>
+        <br />
+        <AnimatedLink transitionLength={2500} href="/contact">
+          {"> contact"}
+        </AnimatedLink>
+        <br />
+        <AnimatedLink transitionLength={2500} href="/about">
+          {"> about"}
+        </AnimatedLink>
       </div>
-      <Terminal />
-    </AnimatedContainer>
+    </Layout>
   );
 }

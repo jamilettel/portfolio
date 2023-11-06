@@ -7,9 +7,13 @@ import { usePathname } from "next/navigation";
 export default function AnimatedLink({
   href,
   children,
+  transitionLength,
+  className,
 }: {
   href: string;
   children?: React.ReactNode;
+  transitionLength?: number;
+  className?: string;
 }) {
   const pathname = usePathname();
   const { updateContent } = useTransitionContext();
@@ -17,9 +21,10 @@ export default function AnimatedLink({
   return (
     <Link
       onClick={() => {
-        updateContent(getIdFromPathname(pathname));
+        updateContent(getIdFromPathname(pathname), transitionLength);
       }}
       href={href}
+      className={className}
     >
       {children}
     </Link>
