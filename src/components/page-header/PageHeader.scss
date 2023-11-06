@@ -15,6 +15,10 @@
     max-height: 58px; // 42px + 8px + 8px
   }
 
+  @media (max-width: 900px) {
+    max-height: 44px; // 32px + 6px + 6px
+  }
+
   h1 {
     line-height: 1;
     margin: 0;
@@ -26,6 +30,10 @@
     @media (max-width: 900px) {
       font-size: 64px;
       height: 58px;
+    }
+    @media (max-width: 600px) {
+      font-size: 48px;
+      height: 44px;
     }
   }
 
@@ -64,6 +72,10 @@
     @media (max-width: 900px) {
       height: 42px;
       top: 8px;
+    }
+    @media (max-width: 600px) {
+      height: 32px;
+      top: 6px;
     }
   }
 }

@@ -14,6 +14,7 @@
   --underscore-bottom-step-1: -40px;
   --underscore-top-final-step: 12px;
   --main-title-initial-height: 1em;
+  --font-size: 96px;
 
   @media (max-width: 900px) {
     --underscore-initial-width: 50px;
@@ -26,34 +27,32 @@
     --underscore-top-final-step: 8px;
     --height-step-1: 96px;
     --height-step-2: 64px;
+    --font-size: 64px;
   }
 
   @media (max-width: 600px) {
-    --underscore-initial-width: 48px;
-    --underscore-initial-height: 12px;
-    --underscore-height-step-1: 128px;
-    --underscore-height-step-2: 42px;
-    --underscore-initial-border-radius: 2px;
-    --underscore-initial-bottom: 44px;
-    --underscore-bottom-step-1: -24px;
-    --underscore-top-final-step: 8px;
+    --underscore-initial-width: 36px;
+    --underscore-initial-height: 10px;
+    --underscore-height-step-1: 96px;
+    --underscore-height-step-2: 32px;
+    --underscore-initial-border-radius: 1px;
+    --underscore-initial-bottom: 33px;
+    --underscore-bottom-step-1: -20px;
+    --underscore-top-final-step: 6px;
     --height-step-1: 96px;
     --height-step-2: 64px;
     --main-title-initial-height: 2em;
+    --font-size: 48px;
   }
 
   .main-title,
   .main-title-animated {
     margin: 0;
-    font-size: 96px;
+    font-size: var(--font-size);
     color: $accent;
     line-height: 1;
     text-align: center;
     width: 100%;
-
-    @media (max-width: 900px) {
-      font-size: 64px;
-    }
   }
 
   .main-title-animated {
@@ -262,7 +261,7 @@
   justify-content: space-between;
   color: $background;
   z-index: 1;
-  font-size: 96px;
+  font-size: var(--font-size);
   line-height: 1;
   gap: 50px;
   overflow: hidden;
@@ -272,10 +271,6 @@
   animation-timing-function: cubic-bezier(0.75, 0, 0.25, 1);
   animation-delay: 1100ms, 900ms;
   animation-fill-mode: forwards;
-
-  @media (max-width: 900px) {
-    font-size: 64px;
-  }
 }
 
 .animate-out-work {
