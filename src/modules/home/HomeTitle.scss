@@ -35,12 +35,18 @@
   }
 }
 
-.subtitle {
-  margin: 0;
-  font-size: 32px;
-  text-align: right;
-  color: $accent;
-  font-weight: normal;
+.subtitle-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 900px 1fr;
+
+  .subtitle {
+    margin: 0;
+    font-size: 32px;
+    text-align: right;
+    color: $accent;
+    font-weight: normal;
+    grid-column: 2;
+  }
 }
 
 @keyframes underscore-down {

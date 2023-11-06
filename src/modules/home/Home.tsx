@@ -43,7 +43,9 @@ function HomePageTitle() {
         />
         <div className="title-underscore" />
       </div>
-      <h2 className="subtitle">A Full Stack developer</h2>
+      <div className="subtitle-wrapper">
+        <h2 className="subtitle">A Full Stack developer</h2>
+      </div>
     </div>
   );
 }
