@@ -1,25 +1,5 @@
 @import "base";
 
-@keyframes home-out {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100vw);
-  }
-}
-
-@keyframes home-in {
-  0% {
-    transform: translateX(-100vw);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @keyframes home-fade-in {
   0% {
     opacity: 0;
@@ -47,24 +27,8 @@
 
   .content {
     max-width: 100%;
-    padding: 8px;
     display: flex;
     flex-direction: column;
-
-    .main-title {
-      margin: 0;
-      font-size: 96px;
-      color: $accent;
-      line-height: 1;
-    }
-
-    .subtitle {
-      margin: 0;
-      font-size: 32px;
-      text-align: right;
-      color: $accent;
-      font-weight: normal;
-    }
 
     .links {
       font-size: 64px;
@@ -90,20 +54,4 @@
 .animate-out-unknown.main-content {
   opacity: 1;
   animation: home-fade-out 300ms ease-out forwards;
-}
-
-.animate-in-test.main-content {
-  .content {
-    transform: translateX(-100vw);
-    animation: home-in 800ms ease-out forwards;
-    animation-delay: 200ms;
-  }
-}
-
-.animate-out-test.main-content {
-  .content {
-    transform: translateX(0);
-    animation: home-out 800ms ease-out forwards;
-    animation-delay: 200ms;
-  }
 }
