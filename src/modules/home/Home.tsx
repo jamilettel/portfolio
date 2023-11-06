@@ -25,9 +25,13 @@ function HomePageTitle() {
   return (
     <div>
       <div className="title-wrapper">
-        <h1 className={`${rubikMonoOne.className} main-title`}>Jamil Ettel</h1>
+        <h1 className={`${rubikMonoOne.className} main-title`}>
+          Jamil
+          <br /> Ettel
+        </h1>
         <h1 className={`${rubikMonoOne.className} main-title-animated`}>
-          Jamil Ettel
+          Jamil
+          <br /> Ettel
         </h1>
         <OtherPageTitle
           title="WORK"
