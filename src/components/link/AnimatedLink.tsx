@@ -16,11 +16,12 @@ export default function AnimatedLink({
   className?: string;
 }) {
   const pathname = usePathname();
-  const { updateContent } = useTransitionContext();
+  const { updateContent, savedId } = useTransitionContext();
 
   return (
     <Link
-      onClick={() => {
+      onClick={(e) => {
+        if (savedId) return e.preventDefault();
         updateContent(getIdFromPathname(pathname), transitionLength);
       }}
       href={href}
