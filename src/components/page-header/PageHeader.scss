@@ -1,7 +1,8 @@
 @import "base";
 @import "animations";
 
-.page-header {
+.page-header,
+.content-mask {
   --header-background-height: 64px;
   --header-background-top-offset: 12px;
   --header-height: 88px; // 64px + 12px + 12px
@@ -180,16 +181,18 @@
 @keyframes fill-height {
   0% {
     height: 0;
+    top: 0;
   }
   100% {
     height: 100%;
+    top: var(--home-transition-height);
   }
 }
 
 @keyframes retract-down {
   0% {
     height: 100%;
-    top: 0;
+    top: var(--home-transition-height);
   }
   100% {
     height: 0;
@@ -225,5 +228,5 @@
 }
 
 .animate-out-index .content .page-content {
-  animation: fade-out 10ms 1600ms forwards;
+  animation: fade-out 10ms 1480ms forwards;
 }

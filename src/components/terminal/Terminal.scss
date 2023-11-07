@@ -1,8 +1,22 @@
 .terminal {
-  background: #191919;
   flex: 1;
 
   @media (max-width: 1300px) {
     display: none;
+  }
+
+  .terminal-content {
+    position: fixed;
+    background: #191919;
+    height: 100%;
+    width: calc(100% - 1200px);
+
+    @media (max-width: 1700px) {
+      width: calc(100% - 1000px);
+    }
+    @media (max-width: 1450px) {
+      width: calc(100% - 900px);
+      width: 900px;
+    }
   }
 }
