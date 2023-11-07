@@ -13,6 +13,11 @@ export default function About() {
         title="WORK"
         backgroundClassName="work-bg"
       />
+      <h2>My portfolio website</h2>
+      <h2>Ministudio</h2>
+      <h2>E-norela</h2>
+      <h2>Olympus</h2>
+      <h2>{"Graines d'ici"}</h2>
     </Layout>
   );
 }

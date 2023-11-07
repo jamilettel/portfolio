@@ -1,3 +1,5 @@
+@import "base";
+
 @keyframes erase-animation-cover {
   0% {
     width: 0;
@@ -38,7 +40,7 @@
   }
 }
 
-@mixin erase-animation($position: relative, $duration: 1000ms) {
+@mixin erase-animation($position: relative, $duration: 500ms) {
   position: $position;
   animation: erase-animation-clip $duration cubic-bezier(0.5, 0, 0.5, 1)
     calc($duration + 200ms) forwards;
@@ -46,7 +48,7 @@
   &::after {
     position: absolute;
     z-index: 1;
-    background: #222;
+    background: $erase-foreground-color;
     width: 0;
     height: 100%;
     max-width: 100%;
@@ -60,7 +62,7 @@
 
 @mixin erase-animation-reverse(
   $position: relative,
-  $duration: 1000ms,
+  $duration: 500ms,
   $extra-delay: 0ms
 ) {
   position: $position;
@@ -74,7 +76,7 @@
   &::after {
     position: absolute;
     z-index: 1;
-    background: #222;
+    background: $erase-foreground-color;
     width: 100%;
     height: 100%;
     max-width: 100%;

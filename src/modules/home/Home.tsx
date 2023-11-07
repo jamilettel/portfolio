@@ -58,6 +58,7 @@ export default function Home() {
   return (
     <Layout className="main-content">
       <HomePageTitle />
+      <div className="content-mask" />
       <div className="links">
         <div className="erase-animation">Choose a page...</div>
         <AnimatedLink
