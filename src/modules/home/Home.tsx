@@ -23,7 +23,7 @@ function OtherPageTitle({
 
 function HomePageTitle() {
   return (
-    <div>
+    <>
       <div className="title-wrapper">
         <h1 className={`${rubikMonoOne.className} main-title`}>
           Jamil
@@ -50,7 +50,7 @@ function HomePageTitle() {
       <div className="subtitle-wrapper">
         <h2 className="subtitle">A Full Stack developer</h2>
       </div>
-    </div>
+    </>
   );
 }
 
