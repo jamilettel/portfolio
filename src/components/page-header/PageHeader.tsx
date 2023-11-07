@@ -30,7 +30,7 @@ export default function PageHeader({
         {" >"}
       </AnimatedLink>
       <AnimatedLink
-        transitionLength={1700}
+        transitionLength={2000}
         className="page-header-home-button"
         href="/"
       >

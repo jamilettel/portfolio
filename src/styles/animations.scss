@@ -3,7 +3,27 @@
     width: 0;
   }
   100% {
-    width: 900px;
+    width: 100%;
+  }
+}
+
+@keyframes appear-animation-unclip {
+  0% {
+    clip-path: polygon(0 0, 0 100%, 0% 100%, 0% 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  }
+}
+
+@keyframes appear-animation-uncover {
+  0% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
   }
 }
 
@@ -38,8 +58,43 @@
   }
 }
 
+@mixin erase-animation-reverse(
+  $position: relative,
+  $duration: 1000ms,
+  $extra-delay: 0ms
+) {
+  position: $position;
+  animation-name: appear-animation-unclip;
+  animation-duration: $duration;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+  animation-delay: calc(200ms + $extra-delay);
+  animation-fill-mode: forwards;
+  clip-path: polygon(0 0, 0 100%, 0% 100%, 0% 0);
+
+  &::after {
+    position: absolute;
+    z-index: 1;
+    background: #222;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    content: "";
+    animation-name: appear-animation-uncover;
+    animation-duration: $duration;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    animation-delay: calc(200ms + $duration + $extra-delay);
+    animation-fill-mode: forwards;
+  }
+}
+
 .animate-out .erase-animation {
   @include erase-animation;
+}
+
+.animate-in .erase-animation-reverse {
+  @include erase-animation-reverse;
 }
 
 @keyframes transition-left {
