@@ -1,20 +1,22 @@
+@import "animations";
+
 .about-content.animate-out-work {
   .content {
-    animation: transition-right 800ms ease-in-out 200ms forwards;
+    @include transition-right-out;
   }
 }
 .about-content.animate-in-work {
   .content {
-    animation: transition-right 800ms ease-in-out 200ms forwards reverse;
+    @include transition-right-in;
   }
 }
 .about-content.animate-out-contact {
   .content {
-    animation: transition-left 800ms ease-in-out 200ms forwards;
+    @include transition-left-out;
   }
 }
 .about-content.animate-in-contact {
   .content {
-    animation: transition-left 800ms ease-in-out 200ms forwards reverse;
+    @include transition-left-in;
   }
 }

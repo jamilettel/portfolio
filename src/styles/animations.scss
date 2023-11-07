@@ -41,7 +41,7 @@
 @mixin erase-animation($position: relative, $duration: 1000ms) {
   position: $position;
   animation: erase-animation-clip $duration cubic-bezier(0.5, 0, 0.5, 1)
-    calc($duration / 2 + 200ms) forwards;
+    calc($duration + 200ms) forwards;
 
   &::after {
     position: absolute;
@@ -108,6 +108,16 @@
   }
 }
 
+@mixin transition-left-out($duration: 800ms, $delay: 200ms) {
+  transform: translateX(0);
+  animation: transition-left 800ms ease-in-out 200ms forwards;
+}
+
+@mixin transition-left-in($duration: 800ms, $delay: 200ms) {
+  transform: translateX(100%);
+  animation: transition-left 800ms ease-in-out 200ms reverse backwards;
+}
+
 @keyframes transition-right {
   0% {
     transform: translateX(0);
@@ -117,6 +127,16 @@
     clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
     transform: translateX(-100%);
   }
+}
+
+@mixin transition-right-out($duration: 800ms, $delay: 200ms) {
+  transform: translateX(0);
+  animation: transition-right 800ms ease-in-out 200ms forwards;
+}
+
+@mixin transition-right-in($duration: 800ms, $delay: 200ms) {
+  transform: translateX(-100%);
+  animation: transition-right 800ms ease-in-out 200ms reverse backwards;
 }
 
 @keyframes fade-in {
