@@ -6,8 +6,8 @@
   overflow: hidden;
 
   .content {
+    position: relative;
     width: 1200px;
-    // background: $background;
 
     @media (max-width: 1700px) {
       width: 1000px;

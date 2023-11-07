@@ -35,6 +35,10 @@
     grid-template-columns: 0 auto 0;
   }
 
+  .content-mask {
+    display: none;
+  }
+
   > h1 {
     line-height: 1;
     margin: 0;
@@ -171,4 +175,55 @@
       animation-delay: 1000ms;
     }
   }
+}
+
+@keyframes fill-height {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes retract-down {
+  0% {
+    height: 100%;
+    top: 0;
+  }
+  100% {
+    height: 0;
+    top: 100%;
+  }
+}
+
+@keyframes remove-background {
+  0% {
+    background: $background;
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.animate-out-index .content {
+  animation: remove-background 10ms 1600ms forwards;
+
+  .content-mask {
+    display: block;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    background: $erase-background-color;
+
+    animation-name: fill-height, retract-down;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0.75, 0, 0.25, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 1100ms, 1600ms;
+  }
+}
+
+.animate-out-index .content .page-content {
+  animation: fade-out 10ms 1600ms forwards;
 }

@@ -18,24 +18,30 @@ export default function PageHeader({
   nextPageTitle: string;
 }) {
   return (
-    <div className="page-header">
-      <div className={`page-header-background ${backgroundClassName}`}></div>
-      <AnimatedLink className="page-header-button-left" href={previousPageHref}>
-        {"< "}
-        {previousPageTitle}
-      </AnimatedLink>
-      <h1 className={rubikMonoOne.className}>{title}</h1>
-      <AnimatedLink className="page-header-button-right" href={nextPageHref}>
-        {nextPageTitle}
-        {" >"}
-      </AnimatedLink>
-      <AnimatedLink
-        transitionLength={2000}
-        className="page-header-home-button"
-        href="/"
-      >
-        GO BACK
-      </AnimatedLink>
-    </div>
+    <>
+      <div className="content-mask" />
+      <div className="page-header">
+        <div className={`page-header-background ${backgroundClassName}`}></div>
+        <AnimatedLink
+          className="page-header-button-left"
+          href={previousPageHref}
+        >
+          {"< "}
+          {previousPageTitle}
+        </AnimatedLink>
+        <h1 className={rubikMonoOne.className}>{title}</h1>
+        <AnimatedLink className="page-header-button-right" href={nextPageHref}>
+          {nextPageTitle}
+          {" >"}
+        </AnimatedLink>
+        <AnimatedLink
+          transitionLength={2800}
+          className="page-header-home-button"
+          href="/"
+        >
+          GO BACK
+        </AnimatedLink>
+      </div>
+    </>
   );
 }
