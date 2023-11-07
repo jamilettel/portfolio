@@ -2,37 +2,47 @@
 @import "animations";
 
 .page-header {
+  --header-background-height: 64px;
+  --header-background-top-offset: 12px;
+  --header-height: 88px; // 64px + 12px + 12px
+  --font-size: 96px;
+  --home-transition-height: 128px;
+
+  @media (max-width: 900px) {
+    --header-background-height: 42px;
+    --header-background-top-offset: 8px;
+    --header-height: 58px; // 42px + 8px + 8px
+    --font-size: 64px;
+    --home-transition-height: 96px;
+  }
+  @media (max-width: 600px) {
+    --header-background-height: 32px;
+    --header-background-top-offset: 6px;
+    --header-height: 44px; // 32px + 6px + 6px
+    --font-size: 48px;
+    --home-transition-height: 128px;
+  }
+}
+
+.page-header {
   position: relative;
   display: grid;
   grid-template-columns: 100px auto 100px;
-  max-height: 88px; // 64px + 12px + 12px
   z-index: 1;
+  max-height: var(--header-height);
 
-  @media (max-width: 900px) {
-    max-height: 58px; // 42px + 8px + 8px
+  @media (max-width: 600px) {
+    grid-template-columns: 0 auto 0;
   }
 
-  @media (max-width: 900px) {
-    max-height: 44px; // 32px + 6px + 6px
-  }
-
-  h1 {
+  > h1 {
     line-height: 1;
     margin: 0;
     color: $background;
-    font-size: 96px;
+    font-size: var(--font-size);
     text-align: center;
-    height: 88px;
+    height: var(--header-height);
     grid-column: 2;
-
-    @media (max-width: 900px) {
-      font-size: 64px;
-      height: 58px;
-    }
-    @media (max-width: 600px) {
-      font-size: 48px;
-      height: 44px;
-    }
   }
 
   .page-header-button-right,
@@ -63,18 +73,10 @@
 
   .page-header-background {
     position: absolute;
-    top: 12px;
-    height: 64px;
+    top: var(--header-background-top-offset);
+    height: var(--header-background-height);
     width: 100%;
     z-index: -1;
-    @media (max-width: 900px) {
-      height: 42px;
-      top: 8px;
-    }
-    @media (max-width: 600px) {
-      height: 32px;
-      top: 6px;
-    }
   }
 
   .page-header-home-button {
@@ -110,6 +112,37 @@
   }
 }
 
+@keyframes page-header-shrink {
+  0% {
+    height: var(--header-background-height);
+    top: var(--header-background-top-offset);
+  }
+  100% {
+    top: 0;
+    height: 0;
+  }
+}
+@keyframes page-header-expand {
+  0% {
+    height: 0;
+    background: $accent;
+  }
+  100% {
+    height: var(--home-transition-height);
+    background: $accent;
+  }
+}
+@keyframes page-header-disappear {
+  0% {
+    height: var(--home-transition-height);
+    top: 0;
+  }
+  100% {
+    top: var(--home-transition-height);
+    height: 0;
+  }
+}
+
 .animate-out-index {
   .page-header-home-button {
     @include erase-animation(absolute, 500ms);
@@ -120,6 +153,22 @@
 
     @media (max-width: 600px) {
       position: absolute;
+    }
+  }
+
+  .page-header {
+    .page-header-background {
+      animation-name: page-header-shrink, page-header-expand,
+        page-header-disappear;
+      animation-duration: 300ms;
+      animation-timing-function: cubic-bezier(0.75, 0, 0.25, 1);
+      animation-fill-mode: forwards;
+      animation-delay: 700ms, 1100ms, 1300ms;
+    }
+
+    > h1 {
+      animation: fade-out 0ms forwards;
+      animation-delay: 1000ms;
     }
   }
 }

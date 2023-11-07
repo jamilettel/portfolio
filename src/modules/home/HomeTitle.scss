@@ -303,3 +303,13 @@
     display: flex;
   }
 }
+
+.animate-in-about,
+.animate-in-work,
+.animate-in-contact {
+  .title-wrapper,
+  .subtitle {
+    opacity: 0;
+    animation: fade-in 100ms 1300ms forwards;
+  }
+}
