@@ -78,6 +78,18 @@
       top: 6px;
     }
   }
+
+  .page-header-home-button {
+    position: absolute;
+    z-index: 1;
+
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: white;
+    text-decoration: none;
+  }
 }
 
 @keyframes page-header-appear {

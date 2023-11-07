@@ -29,6 +29,9 @@ export default function PageHeader({
         {nextPageTitle}
         {" >"}
       </AnimatedLink>
+      <AnimatedLink className="page-header-home-button" href="/">
+        GO BACK
+      </AnimatedLink>
     </div>
   );
 }
