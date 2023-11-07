@@ -145,11 +145,11 @@
 
 .animate-out-index {
   .page-header-home-button {
-    @include erase-animation(absolute, 500ms);
+    @include erase-animation(absolute, 300ms);
   }
   .page-header-button-right,
   .page-header-button-left {
-    @include erase-animation(relative, 500ms);
+    @include erase-animation(relative, 300ms);
 
     @media (max-width: 600px) {
       position: absolute;
