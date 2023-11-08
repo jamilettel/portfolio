@@ -380,7 +380,7 @@
     transform: translateX(-50%);
     animation-name: content-mask-appear, underscore-widen,
       content-mask-fill-height, content-mask-clip;
-    animation-duration: 300ms, 300ms, 500ms, 500ms;
+    animation-duration: 300ms, 300ms, 300ms, 500ms;
     animation-timing-function: cubic-bezier(0.75, 0, 0.25, 1);
     animation-delay: 200ms, 500ms, 900ms, 1400ms;
     animation-fill-mode: forwards;
