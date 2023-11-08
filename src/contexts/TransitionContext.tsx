@@ -15,6 +15,7 @@ interface TransitionContextProps {
   animateOutUnknown: boolean;
   animateInUnknown: boolean;
   scrollPosition?: ScrollPosition;
+  transitionLength: number;
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
@@ -23,6 +24,7 @@ const TransitionContext = createContext<TransitionContextProps>({
   animateOutUnknown: false,
   animateInUnknown: false,
   clearContent() {},
+  transitionLength: 0,
 });
 
 function TransitionProvider({ children }: { children: React.ReactNode }) {
@@ -97,6 +99,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
         animateInUnknown,
         scrollPosition,
         clearContent,
+        transitionLength,
       }}
     >
       {children}
