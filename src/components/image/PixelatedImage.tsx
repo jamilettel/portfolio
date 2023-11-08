@@ -40,12 +40,7 @@ export default function PixelatedImage({
   }, [pixelSize, transitionLength]);
 
   return (
-    <svg
-      className={className}
-      viewBox={`0 0 ${width} ${height}`}
-      width={width}
-      height={height}
-    >
+    <svg className={className} width={width} height={height}>
       <filter id="pixelate" x="0" y="0">
         <feFlood x={4} y={4} height={1} width={1} />
         <feComposite width={pixelSize * 2} height={pixelSize * 2} />
@@ -59,6 +54,8 @@ export default function PixelatedImage({
         filter={enabled ? "url(#pixelate)" : ""}
         href={src}
         ref={ref}
+        width="100%"
+        height="100%"
       />
     </svg>
   );
