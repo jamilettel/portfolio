@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/page-header/PageHeader";
 import "./Work.scss";
+import PixelatedImage from "@/components/image/PixelatedImage";
 
 export default function About() {
   return (
@@ -15,6 +16,7 @@ export default function About() {
       />
       <div className="page-content">
         <h2>My portfolio website</h2>
+        <PixelatedImage src="/jamil-ettel.png" />
         <h2>Ministudio</h2>
         <h2>E-norela</h2>
         <h2>Olympus</h2>
