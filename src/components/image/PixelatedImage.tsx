@@ -1,22 +1,21 @@
 "use client";
 
+import { useTransitionContext } from "@/contexts/TransitionContext";
 import { useEffect, useRef, useState } from "react";
 
 export default function PixelatedImage({
   src,
   className,
-  initialDelay = 2000,
 }: {
   src: string;
   className?: string;
-  initialDelay?: number;
 }) {
   const [pixelSize, setPixelSize] = useState(20);
   const [height, setHeight] = useState(300);
   const [width, setWidth] = useState(500);
   const [enabled, setEnabled] = useState(true);
   const ref = useRef<SVGImageElement>(null);
-  const [startDelay, setStartDelay] = useState(initialDelay);
+  const { savedId } = useTransitionContext();
 
   useEffect(() => {
     const img = new Image();
@@ -28,17 +27,12 @@ export default function PixelatedImage({
   }, []);
 
   useEffect(() => {
-    if (startDelay > 0) {
-      setTimeout(() => {
-        setStartDelay(0);
-      }, startDelay);
-    } else {
-      setTimeout(() => {
-        if (pixelSize > 1) setPixelSize(pixelSize - 1);
-        else setEnabled(false);
-      }, 50);
-    }
-  }, [pixelSize, startDelay]);
+    if (savedId) return;
+    setTimeout(() => {
+      if (pixelSize > 1) setPixelSize(pixelSize - 1);
+      else setEnabled(false);
+    }, 50);
+  }, [pixelSize, savedId]);
 
   return (
     <svg
