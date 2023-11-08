@@ -54,6 +54,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
     setSavedElements(null);
     saveId(undefined);
     setScrollPosition(undefined);
+    setTransitionLength(0);
   }
 
   useEffect(() => {

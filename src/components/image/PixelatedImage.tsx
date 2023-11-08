@@ -31,7 +31,7 @@ export default function PixelatedImage({
     setTimeout(() => {
       if (pixelSize > 1) setPixelSize(pixelSize - 1);
       else setEnabled(false);
-    }, 50);
+    }, 33);
   }, [pixelSize, savedId]);
 
   return (

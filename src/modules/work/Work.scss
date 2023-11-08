@@ -1,3 +1,4 @@
+@import "base";
 @import "animations";
 
 .work-content.animate-out-about {
@@ -18,5 +19,12 @@
 .work-content.animate-in-contact {
   .content {
     @include transition-right-in;
+  }
+}
+
+.work-content .page-content {
+  h2 {
+    color: $work-color;
+    font-weight: normal;
   }
 }
