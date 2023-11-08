@@ -10,12 +10,12 @@ function PortfolioProject() {
       <h2>My portfolio website</h2>
       <div className="project">
         <PixelatedImage src="/jamil-ettel.png" />
-        <div className="project-description">
+        <div className="project-overview">
           <h3>RESPONSIBILITIES:</h3>
           <p>Development / Design / Animations</p>
           <h3>TECH STACK:</h3>
           <p>NextJS</p>
-          <h3>FEATURES:</h3>
+          <h3>MAIN WORK:</h3>
           <p>
             • Animated page transitions
             <br />
@@ -46,6 +46,22 @@ function PortfolioProject() {
           <Link href="https://jamilettel.com" target="_blank">
             VISIT WEBSITE ↗
           </Link>
+          <br />
+          <Link href="https://github.com/jamilettel/portfolio" target="_blank">
+            SOURCE CODE ↗
+          </Link>
+        </div>
+        <div className="project-description">
+          <h3>DESCRIPTION</h3>
+          <p>
+            You are currently viewing this website, say hi! I wanted to create
+            something to demonstrate my technical skills as well as my previous
+            work. You {"don't"} see animated page transitions very often, so I
+            added them using a system I developed from scratch. I also
+            experimented with different ways to change pages.
+            {"\n"}The goal was to create a website that felt like using an
+            application. Something unique, but still easy to use.
+          </p>
         </div>
       </div>
     </>
@@ -58,7 +74,7 @@ function MinistudioProject() {
       <h2>Ministudio</h2>
       <div className="project">
         <PixelatedImage src="/ministudio.png" />
-        <div className="project-description">
+        <div className="project-overview">
           <h3>RESPONSIBILITIES:</h3>
           <p>Full stack developer</p>
           <h3>TECH STACK:</h3>
@@ -66,7 +82,7 @@ function MinistudioProject() {
             React / Firebase
             <br /> ChatGPT / Midjourney / Stable Diffusion
           </p>
-          <h3>FEATURES:</h3>
+          <h3>MAIN WORK:</h3>
           <p>
             • AI image generation
             <br />
@@ -77,6 +93,40 @@ function MinistudioProject() {
           <Link href="https://ministudio.ai" target="_blank">
             VISIT WEBSITE ↗
           </Link>
+        </div>
+        <div className="project-description">
+          <h3>DESCRIPTION</h3>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function NorelaProject() {
+  return (
+    <>
+      <h2>Norela</h2>
+      <div className="project">
+        <PixelatedImage src="/norela.png" />
+        <div className="project-overview">
+          <h3>RESPONSIBILITIES:</h3>
+          <p>Full stack developer</p>
+          <h3>TECH STACK:</h3>
+          <p>React / Django / Hasura / PostgreSQL</p>
+          <h3>MAIN WORK:</h3>
+          <p>
+            • Added preselection presets for different scenarios
+            <br />• Cleanup of the codebase
+            <br />• Payment & Quotes
+            <br />• Database design & frontend implementation
+          </p>
+
+          <Link href="https://app.e-norela.com/" target="_blank">
+            VISIT WEBSITE ↗
+          </Link>
+        </div>
+        <div className="project-description">
+          <h3>DESCRIPTION</h3>
         </div>
       </div>
     </>
@@ -97,7 +147,7 @@ export default function About() {
       <div className="page-content">
         <PortfolioProject />
         <MinistudioProject />
-        <h2>E-norela</h2>
+        <NorelaProject />
         <h2>Olympus - UNRELEASED</h2>
         <h2>{"Graines d'ici"}</h2>
       </div>
