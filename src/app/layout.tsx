@@ -4,7 +4,7 @@ import "./globals.scss";
 import { mono } from "@/utils/fonts";
 
 export const metadata: Metadata = {
-  title: "Jamil Ettel",
+  title: "Jamil Ettel - Portfolio",
   description:
     "Hello! I'm a fullstack developer, and this is my portfolio website!",
   themeColor: "#191919",

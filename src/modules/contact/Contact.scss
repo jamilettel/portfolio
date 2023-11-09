@@ -33,5 +33,18 @@
   }
   h2 {
     color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .email-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .white {
+    color: white;
   }
 }
