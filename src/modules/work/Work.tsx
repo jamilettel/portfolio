@@ -157,7 +157,7 @@ function OlympusProject() {
         <PixelatedImage src="/olympus.png" />
         <div className="project-overview">
           <h3>RESPONSIBILITIES:</h3>
-          <p>Full stack developer / Devops / </p>
+          <p>Full stack developer / Devops</p>
           <h3>TECH STACK:</h3>
           <p>
             React-Native / Django / Hasura / PostgreSQL <br />
@@ -190,6 +190,44 @@ function OlympusProject() {
   );
 }
 
+function GrainesdiciProject() {
+  return (
+    <>
+      <h2>{"Graines d'ici"}</h2>
+      <div className="project">
+        <PixelatedImage src="/grainesdici.png" />
+        <div className="project-overview">
+          <h3>RESPONSIBILITIES:</h3>
+          <p>Full stack developer</p>
+          <h3>TECH STACK:</h3>
+          <p>WordPress / WooCommerce / MySQL</p>
+          <h3>MAIN WORK:</h3>
+          <p>
+            • Store page section menu
+            <br />• Admin tools for deliveries
+            <br />• General design improvements & bug fixes
+          </p>
+          <h3>INVOLVMENT:</h3>
+          <p>2021</p>
+          <Link href="https://www.grainesdici.fr/" target="_blank">
+            VISIT WEBSITE ↗
+          </Link>
+        </div>
+        <div className="project-description">
+          <h3>DESCRIPTION</h3>
+          <p>
+            {"Graines d'ici"} is a local organic food delivery service. They
+            deliver fresh vegetables and fruits to their customers every day.
+            Their storefront was starting to show its age, so I, alongside a
+            team of 4 other developers, was tasked with improving it, as well as
+            adding new features.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
 export default function About() {
   return (
     <Layout className="work-content">
@@ -206,7 +244,7 @@ export default function About() {
         <MinistudioProject />
         <NorelaProject />
         <OlympusProject />
-        <h2>{"Graines d'ici"}</h2>
+        <GrainesdiciProject />
       </div>
     </Layout>
   );
