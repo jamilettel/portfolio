@@ -1,7 +1,7 @@
 "use client";
 import Layout from "@/components/layout/Layout";
 import AnimatedLink from "@/components/link/AnimatedLink";
-import { rubikMonoOne } from "@/utils/fonts";
+import { rubikMonoOne, shareTechMono } from "@/utils/fonts";
 import "./Home.scss";
 import "./HomeTitle.scss";
 
@@ -59,7 +59,7 @@ export default function Home() {
     <Layout className="main-content">
       <HomePageTitle />
       <div className="content-mask" />
-      <div className="links">
+      <div className={`links ${shareTechMono.className}`}>
         <div className="erase-animation">Choose a page...</div>
         <AnimatedLink
           className="erase-animation"

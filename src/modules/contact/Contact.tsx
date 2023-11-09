@@ -13,6 +13,7 @@ export default function Contact() {
         title="CONTACT"
         backgroundClassName="contact-bg"
       />
+      <div className="page-content">EMAIL: etteljamil267@gmail.com</div>
     </Layout>
   );
 }

@@ -1,4 +1,4 @@
-import { rubikMonoOne } from "@/utils/fonts";
+import { rubikMonoOne, shareTechMono } from "@/utils/fonts";
 import "./PageHeader.scss";
 import AnimatedLink from "@/components/link/AnimatedLink";
 
@@ -20,7 +20,7 @@ export default function PageHeader({
   return (
     <>
       <div className="content-mask" />
-      <div className="page-header">
+      <div className={`page-header ${shareTechMono.className}`}>
         <div className={`page-header-background ${backgroundClassName}`}></div>
         <AnimatedLink
           className="page-header-button-left"
