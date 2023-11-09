@@ -185,44 +185,6 @@ function OlympusProject() {
 }
 
 function GrainesdiciProject() {
-  // return (
-  //   <>
-  //     <h2>
-  //       <span>{"> "}</span>
-  //       {"Graines d'ici"}
-  //     </h2>
-  //     <div className="project">
-  //       <PixelatedImage src="/grainesdici.png" />
-  //       <div className="project-overview">
-  //         <h3>RESPONSIBILITIES:</h3>
-  //         <p>Full stack developer</p>
-  //         <h3>TECH STACK:</h3>
-  //         <p>WordPress / WooCommerce / MySQL</p>
-  //         <h3>MAIN WORK:</h3>
-  //         <p>
-  //           • Store page section menu
-  //           <br />• Admin tools for deliveries
-  //           <br />• General design improvements & bug fixes
-  //         </p>
-  //         <h3>INVOLVMENT:</h3>
-  //         <p>2021</p>
-  //         <Link href="https://www.grainesdici.fr/" target="_blank">
-  //           VISIT WEBSITE ↗
-  //         </Link>
-  //       </div>
-  //       <div className="project-description">
-  //         <h3>DESCRIPTION</h3>
-  //         <p>
-  //           {"Graines d'ici"} is a local organic food delivery service. They
-  //           deliver fresh vegetables and fruits to their customers every day.
-  //           Their storefront was starting to show its age, so I, alongside a
-  //           team of 4 other developers, was tasked with improving it, as well as
-  //           adding new features.
-  //         </p>
-  //       </div>
-  //     </div>
-  //   </>
-  // );
   return (
     <Project
       title="Graines d'ici"
