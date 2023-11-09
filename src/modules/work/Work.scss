@@ -23,6 +23,13 @@
 }
 
 .work-content .page-content {
+  h2,
+  h3 {
+    span {
+      opacity: 0.3;
+    }
+  }
+
   a {
     color: $work-color;
     font-weight: bold;
@@ -58,6 +65,7 @@
       }
       p {
         margin-top: 0;
+        white-space: pre-wrap;
       }
 
       .white-link {

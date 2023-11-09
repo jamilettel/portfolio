@@ -13,6 +13,7 @@ export default function About() {
         title="ABOUT"
         backgroundClassName="about-bg"
       />
+      <div className="page-content"></div>
     </Layout>
   );
 }
