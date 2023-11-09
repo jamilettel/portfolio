@@ -21,3 +21,17 @@
     @include transition-left-in;
   }
 }
+
+.contact-content .page-content {
+  a {
+    color: $contact-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  h2 {
+    color: white;
+  }
+}
