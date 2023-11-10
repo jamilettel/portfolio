@@ -33,7 +33,6 @@ export default function About() {
             <h3>EMPLOYER:</h3>
             <p>UNEMPLOYED</p>
 
-            <button className={mono.className}>DOWNLOAD CV</button>
           </div>
         </div>
         <div className="about-section">
