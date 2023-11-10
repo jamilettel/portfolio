@@ -3,7 +3,6 @@
 import { useTransitionContext } from "@/contexts/TransitionContext";
 import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname } from "next/navigation";
-import Script from "next/script";
 import { useMemo } from "react";
 import "./AnimatedContainer.scss";
 
@@ -43,9 +42,8 @@ export default function AnimatedContainer({
           <main
             dangerouslySetInnerHTML={{ __html: savedElements.innerHTML }}
             id={savedId}
-            className={`${
-              savedElements.className ?? ""
-            } animate-out animate-out-${currentId}`}
+            className={`${savedElements.className ?? ""
+              } animate-out animate-out-${currentId}`}
             style={{
               top: -(scrollPosition?.top ?? 0),
               left: -(scrollPosition?.left ?? 0),

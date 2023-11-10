@@ -1,5 +1,17 @@
+@import "base";
+
 .terminal {
   flex: 1;
+  cursor: text;
+
+  .hidden-input {
+    max-width: 1px;
+    max-height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: -1;
+  }
 
   @media (max-width: 1300px) {
     display: none;
@@ -7,6 +19,7 @@
 
   .terminal-content {
     position: fixed;
+    padding: 8px;
     background: #191919;
     height: 100%;
     width: calc(100% - 1200px);
@@ -14,9 +27,48 @@
     @media (max-width: 1700px) {
       width: calc(100% - 1000px);
     }
+
     @media (max-width: 1450px) {
       width: calc(100% - 900px);
       width: 900px;
     }
+  }
+
+  .user-input {
+    color: #ccc;
+
+    &::before {
+      content: "$> ";
+      font-weight: bold;
+    }
+
+    // &::after {
+    //   content: ".";
+    //   color: transparent;
+    //   min-width: 0.5em;
+    //   min-height: 1em;
+    //   border: solid 1px #ccc;
+    // }
+  }
+
+  // .user-input.focused::after {
+  //   background: #ccc;
+  // }
+
+
+  .user-input.index::before {
+    color: $accent;
+  }
+
+  .user-input.work::before {
+    color: $work-color;
+  }
+
+  .user-input.about::before {
+    color: $about-color;
+  }
+
+  .user-input.contact::before {
+    color: $contact-color;
   }
 }
