@@ -3,7 +3,7 @@
 import { useTransitionContext } from "@/contexts/TransitionContext";
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const PIXEL_DELAY = 33;
+const PIXEL_DELAY = 200;
 
 export default function PixelatedImage({
   src,
@@ -20,7 +20,7 @@ export default function PixelatedImage({
   const { transitionLength } = useTransitionContext();
   const extraDelay = useMemo(() => {
     if (pixelSize < 20) return 0;
-    return Math.max(0, transitionLength - pixelSize * PIXEL_DELAY);
+    return Math.max(0, transitionLength - (pixelSize / 5) * PIXEL_DELAY);
   }, [transitionLength, pixelSize]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function PixelatedImage({
 
   useEffect(() => {
     setTimeout(() => {
-      if (pixelSize > 1) setPixelSize(pixelSize - 1);
+      if (pixelSize > 3) setPixelSize(Math.max(3, pixelSize - 5));
       else setEnabled(false);
     }, extraDelay + PIXEL_DELAY);
   }, [pixelSize, transitionLength]);
