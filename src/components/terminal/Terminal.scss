@@ -3,6 +3,7 @@
 .terminal {
   flex: 1;
   cursor: text;
+  outline: none;
 
   .hidden-input {
     max-width: 1px;
@@ -36,25 +37,27 @@
 
   .user-input {
     color: #ccc;
+    white-space: pre-wrap;
 
     &::before {
       content: "$> ";
       font-weight: bold;
     }
 
-    // &::after {
-    //   content: ".";
-    //   color: transparent;
-    //   min-width: 0.5em;
-    //   min-height: 1em;
-    //   border: solid 1px #ccc;
-    // }
+    .cursor-block {
+      color: transparent;
+      border: solid 1px #ccc;
+    }
+
+    span {
+      border: transparent solid 1px;
+      margin: 0 -1px;
+    }
+
+    span.highlighted {
+      border: solid 1px #ccc;
+    }
   }
-
-  // .user-input.focused::after {
-  //   background: #ccc;
-  // }
-
 
   .user-input.index::before {
     color: $accent;
@@ -70,5 +73,17 @@
 
   .user-input.contact::before {
     color: $contact-color;
+  }
+}
+
+.user-input.focused {
+  .cursor-block {
+    background:
+      #ccc;
+  }
+
+  span.highlighted {
+    background: #ccc;
+    color: #191919;
   }
 }
