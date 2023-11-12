@@ -22,6 +22,7 @@
     position: fixed;
     padding: 8px;
     background: #191919;
+    color: #ccc;
     height: 100%;
     width: calc(100% - 1200px);
 
@@ -36,7 +37,6 @@
   }
 
   .user-input {
-    color: #ccc;
     white-space: pre-wrap;
 
     &::before {

@@ -34,10 +34,12 @@ export default function TerminalInputManager({
   setInput,
   onSubmit,
   children,
+  onCancel,
 }: {
   input: string;
   setInput: (input: string) => void;
   onSubmit: (input: string) => void;
+  onCancel: (input: string) => void;
   children?: React.ReactNode;
 }) {
   const [focused, setFocused] = useState(false);
@@ -46,6 +48,14 @@ export default function TerminalInputManager({
   const pathname = usePathname();
   const page = getIdFromPathname(pathname);
 
+  function addLetter(letter: string) {
+    setInput(
+      input.slice(0, input.length - inputIndex) +
+        letter +
+        input.slice(input.length - inputIndex)
+    );
+  }
+
   function manageTerminalInput(
     key: string,
     ctrl: boolean,
@@ -53,22 +63,32 @@ export default function TerminalInputManager({
   ): boolean {
     let amount = 1;
 
-    if (key.length === 1) {
-      setInput(
-        input.slice(0, input.length - inputIndex) +
-          key +
-          input.slice(input.length - inputIndex)
-      );
+    if ((key === "C" || key === "c") && ctrl) {
+      onCancel(input);
+    } else if (key.length === 1) {
+      addLetter(key);
     } else if (key === "ArrowLeft") {
+      if (shift) {
+        addLetter("D");
+        return false;
+      }
       if (ctrl) {
         amount = moveCaretWithCtrl(input, input.length - inputIndex, -1);
       }
       setInputIndex(Math.min(inputIndex + amount, input.length));
     } else if (key === "ArrowRight") {
+      if (shift) {
+        addLetter("C");
+        return false;
+      }
       if (ctrl) {
         amount = moveCaretWithCtrl(input, input.length - inputIndex, 1) + 1;
       }
       setInputIndex(Math.max(0, inputIndex - amount));
+    } else if (key === "ArrowUp" && shift) {
+      addLetter("A");
+    } else if (key === "ArrowDown" && shift) {
+      addLetter("B");
     } else if (key === "Backspace") {
       if (ctrl) {
         amount = moveCaretWithCtrl(input, input.length - inputIndex, -1);
@@ -112,8 +132,8 @@ export default function TerminalInputManager({
         }
       }}
     >
-      {children}
       <div className="terminal-content">
+        {children}
         <TerminalInput
           focused={focused}
           blink={blink}
