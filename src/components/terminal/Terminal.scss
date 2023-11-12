@@ -76,14 +76,41 @@
   }
 }
 
+@keyframes blink-cursor {
+  0%,
+  50% {
+    background: transparent;
+    border-color: transparent;
+    color: #cccccc;
+  }
+  51%,
+  100% {
+    background: #cccccc;
+    border-color: #cccccc;
+    color: #191919;
+  }
+}
+
 .user-input.focused {
   .cursor-block {
-    background:
-      #ccc;
+    background: #cccccc;
   }
 
   span.highlighted {
-    background: #ccc;
+    background: #cccccc;
+    color: #191919;
+  }
+}
+
+.user-input.blink {
+  .cursor-block {
+    background: #cccccc;
+    animation: blink-cursor 1500ms step-end infinite;
+  }
+
+  span.highlighted {
+    animation: blink-cursor 1500ms step-end infinite;
+    background: #cccccc;
     color: #191919;
   }
 }
