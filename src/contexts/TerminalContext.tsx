@@ -1,6 +1,7 @@
 "use client";
+import { useTransitionContext } from "@/contexts/TransitionContext";
 import { getIdFromPathname } from "@/utils/animated-utils";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { createContext, useState } from "react";
 import "./TerminalCommandStyles.scss";
 
@@ -110,6 +111,8 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
       output: HELP_MESSAGE,
     },
   ]);
+  const { transition } = useTransitionContext();
+  const router = useRouter();
 
   const COMMANDS: {
     [key: string]: (cmd: string[], currentPathname: string) => React.ReactNode;
@@ -137,11 +140,13 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
           .filter((p) => p.length > 0);
       }
 
-      let currentPath = currentPathname
-        .replaceAll("/", " ")
-        .trim()
-        .split(" ")
-        .filter((p) => p.length > 0);
+      let currentPath: string[] = [];
+      if (cmdPath[0] && !cmdPath[0].startsWith("/"))
+        currentPathname
+          .replaceAll("/", " ")
+          .trim()
+          .split(" ")
+          .filter((p) => p.length > 0);
 
       while (lsPath.length > 0) {
         let path = lsPath.shift()!;
@@ -165,7 +170,52 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
         </div>
       );
     },
-    cd: (cmd: string[], currentPathname: string) => "",
+    cd: (cmd: string[], currentPathname: string) => {
+      if (cmd.includes("--help") || cmd.includes("-h")) {
+        return LS_HELP;
+      }
+      let cmdPath = cmd
+        .filter((c) => !c.startsWith("-"))
+        .filter((c) => c !== "cd");
+      let lsPath: string[] = [];
+      if (cmdPath.length > 1) {
+        return `cd: error: too many arguments`;
+      } else if (cmdPath.length === 1) {
+        lsPath = cmdPath[0]
+          .replaceAll("/", " ")
+          .trim()
+          .split(" ")
+          .filter((p) => p.length > 0);
+      }
+
+      let currentPath: string[] = [];
+      if (cmdPath[0] && !cmdPath[0].startsWith("/"))
+        currentPath = currentPathname
+          .replaceAll("/", " ")
+          .trim()
+          .split(" ")
+          .filter((p) => p.length > 0);
+
+      while (lsPath.length > 0) {
+        let path = lsPath.shift()!;
+        if (path === "..") {
+          currentPath.pop();
+        } else if (path === ".") {
+          continue;
+        } else if (!checkPathExists([...currentPath, path])) {
+          return `cd: cannot access '${cmdPath[0]}': No such file or directory`;
+        } else {
+          currentPath.push(path);
+        }
+      }
+      console.log("transitioning to", "/" + currentPath.join("/"));
+      const newPath = "/" + currentPath.join("/");
+      transition(newPath);
+      setTimeout(() => {
+        router.push(newPath);
+      }, 10);
+      return " ";
+    },
     clear: () => {
       setLog([]);
       return null;
@@ -191,7 +241,7 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
                 {
                   command,
                   commandOrigin,
-                  output: COMMANDS[cmd[0]](cmd, pathname),
+                  output,
                 },
               ]);
             }

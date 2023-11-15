@@ -61,27 +61,15 @@ export default function Home() {
       <div className="content-mask" />
       <div className={`links ${shareTechMono.className}`}>
         <div className="erase-animation">Choose a page...</div>
-        <AnimatedLink
-          className="erase-animation"
-          transitionLength={2500}
-          href="/work"
-        >
+        <AnimatedLink className="erase-animation" href="/work">
           {"> my_work"}
         </AnimatedLink>
         <br />
-        <AnimatedLink
-          className="erase-animation"
-          transitionLength={2500}
-          href="/contact"
-        >
+        <AnimatedLink className="erase-animation" href="/contact">
           {"> contact"}
         </AnimatedLink>
         <br />
-        <AnimatedLink
-          className="erase-animation"
-          transitionLength={2500}
-          href="/about"
-        >
+        <AnimatedLink className="erase-animation" href="/about">
           {"> about"}
         </AnimatedLink>
       </div>

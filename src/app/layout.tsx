@@ -1,4 +1,7 @@
-import { TransitionProvider } from "@/contexts/TransitionContext";
+import {
+  TransitionLength,
+  TransitionProvider,
+} from "@/contexts/TransitionContext";
 import type { Metadata } from "next";
 import "./globals.scss";
 import { mono } from "@/utils/fonts";
@@ -66,6 +69,24 @@ export const metadata: Metadata = {
   ],
 };
 
+const TRANSITIONS: TransitionLength[] = [
+  {
+    from: ["/"],
+    to: ["/work", "/about", "/contact"],
+    duration: 2500,
+  },
+  {
+    from: ["/work", "/about", "/contact"],
+    to: ["/"],
+    duration: 2800,
+  },
+  {
+    from: ["/work", "/about", "/contact"],
+    to: ["/work", "/about", "/contact"],
+    duration: 1000,
+  },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -74,7 +95,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mono.className}>
-        <TransitionProvider>
+        <TransitionProvider transitionLengths={TRANSITIONS}>
           <TerminalProvider>{children}</TerminalProvider>
         </TransitionProvider>
       </body>

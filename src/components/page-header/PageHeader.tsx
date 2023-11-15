@@ -34,11 +34,7 @@ export default function PageHeader({
           {nextPageTitle}
           {" >"}
         </AnimatedLink>
-        <AnimatedLink
-          transitionLength={2800}
-          className="page-header-home-button"
-          href="/"
-        >
+        <AnimatedLink className="page-header-home-button" href="/">
           GO BACK
         </AnimatedLink>
       </div>

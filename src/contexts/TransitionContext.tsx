@@ -1,6 +1,7 @@
 "use client";
+import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname } from "next/navigation";
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useMemo, useState } from "react";
 
 type ScrollPosition = {
   top: number;
@@ -8,7 +9,7 @@ type ScrollPosition = {
 };
 
 interface TransitionContextProps {
-  updateContent: (elementId: string, transitionLength?: number) => void;
+  transition: (newPage: string) => void;
   savedId?: string;
   savedElements: HTMLElement | null;
   clearContent: () => void;
@@ -19,7 +20,7 @@ interface TransitionContextProps {
 }
 
 const TransitionContext = createContext<TransitionContextProps>({
-  updateContent() {},
+  transition() {},
   savedElements: null,
   animateOutUnknown: false,
   animateInUnknown: false,
@@ -27,7 +28,21 @@ const TransitionContext = createContext<TransitionContextProps>({
   transitionLength: 0,
 });
 
-function TransitionProvider({ children }: { children: React.ReactNode }) {
+export type TransitionLength = {
+  from: string[];
+  to: string[];
+  duration: number;
+};
+
+function TransitionProvider({
+  children,
+  transitionLengths,
+  defaultTransitionLength = 1000,
+}: {
+  children: React.ReactNode;
+  transitionLengths?: TransitionLength[];
+  defaultTransitionLength?: number;
+}) {
   const pathname = usePathname();
   const [savedElements, setSavedElements] = useState<HTMLElement | null>(null);
   const [savedId, saveId] = useState<string>();
@@ -41,7 +56,8 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   );
   const [transitionLength, setTransitionLength] = useState(0);
 
-  function updateContent(elementId: string, transitionLength: number = 1000) {
+  function transition(newPage: string) {
+    const elementId = getIdFromPathname(pathname);
     const elem = document.getElementById(elementId);
     setSavedElements(elem);
     saveId(elementId);
@@ -49,6 +65,15 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
       left: window.scrollX,
       top: window.scrollY,
     });
+    let transitionLength = defaultTransitionLength;
+    if (transitionLengths) {
+      let override = transitionLengths.find(
+        (tl) => tl.from.includes(pathname) && tl.to.includes(newPage)
+      );
+      if (override) {
+        transitionLength = override.duration;
+      }
+    }
     setTransitionLength(transitionLength);
   }
 
@@ -92,7 +117,7 @@ function TransitionProvider({ children }: { children: React.ReactNode }) {
   return (
     <TransitionContext.Provider
       value={{
-        updateContent,
+        transition,
         savedElements,
         savedId,
         animateOutUnknown,

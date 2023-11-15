@@ -74,7 +74,7 @@ function PortfolioProject() {
       imageUrl="/jamil-ettel.png"
       mainWork={[
         "Animated page transitions",
-        "🚧 Fake terminal for navigation 🚧",
+        "Fake terminal for navigation",
         "Slick retro design",
       ]}
       responsibilities="Development / Design / Animations"
