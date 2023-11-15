@@ -27,7 +27,7 @@ const HELP_MESSAGE = (
     <br />
     <br />
     You can add the <b>--help</b> flag to any command to get more details about
-    that command.
+    that command, when applicable.
     <br />
     <br />
   </div>
