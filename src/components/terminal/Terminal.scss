@@ -1,5 +1,13 @@
 @import "base";
 
+.animate-out .terminal {
+  display: none;
+}
+
+.animate-out-unknown .terminal {
+  display: block;
+}
+
 .terminal {
   flex: 1;
   cursor: text;

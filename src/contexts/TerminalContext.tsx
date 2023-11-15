@@ -2,7 +2,7 @@
 import { useTransitionContext } from "@/contexts/TransitionContext";
 import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname, useRouter } from "next/navigation";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "./TerminalCommandStyles.scss";
 
 const HELP_MESSAGE = (
@@ -102,7 +102,13 @@ const TerminalContext = createContext<TerminalContextProps>({
   log: [],
 });
 
-function TerminalProvider({ children }: { children: React.ReactNode }) {
+function TerminalProvider({
+  children,
+  terminalClassName,
+}: {
+  children: React.ReactNode;
+  terminalClassName?: string;
+}) {
   const pathname = usePathname();
   const [log, setLog] = useState<TerminalLog[]>([
     {
@@ -113,6 +119,20 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
   ]);
   const { transition } = useTransitionContext();
   const router = useRouter();
+  const [focusTerminal, setFocusTerminal] = useState(false);
+
+  useEffect(() => {
+    if (!focusTerminal || !terminalClassName) return;
+    setFocusTerminal(false);
+    const element = document
+      .getElementById(getIdFromPathname(pathname))
+      ?.getElementsByClassName(terminalClassName)[0];
+    // @ts-expect-error focus should exist + we check for it
+    if (typeof element?.focus !== "undefined") {
+      // @ts-expect-error focus should exist
+      element.focus();
+    }
+  }, [pathname]);
 
   const COMMANDS: {
     [key: string]: (cmd: string[], currentPathname: string) => React.ReactNode;
@@ -210,6 +230,7 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
       setTimeout(() => {
         router.push(newPath);
       }, 10);
+      setFocusTerminal(true);
       return " ";
     },
     clear: () => {

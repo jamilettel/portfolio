@@ -96,7 +96,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={mono.className}>
         <TransitionProvider transitionLengths={TRANSITIONS}>
-          <TerminalProvider>{children}</TerminalProvider>
+          <TerminalProvider terminalClassName="terminal">
+            {children}
+          </TerminalProvider>
         </TransitionProvider>
       </body>
     </html>
