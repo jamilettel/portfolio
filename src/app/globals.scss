@@ -63,3 +63,17 @@ a {
 .about-bg {
   background: $about-color;
 }
+
+.white-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: white;
+  }
+}

@@ -30,7 +30,15 @@ export default function About() {
             <h3>HOBBIES:</h3>
             <p>POWERLIFTING / SQUASH / COFFEE</p>
             <h3>EMPLOYER:</h3>
-            <p>UNEMPLOYED</p>
+            <p>
+              <Link
+                className="white-link"
+                href="https://codidae.fr"
+                target="_blank"
+              >
+                CODIDAE ↗
+              </Link>
+            </p>
           </div>
         </div>
         <div className="about-section">
@@ -42,7 +50,11 @@ export default function About() {
           </p>
           <p>
             You can checkout some of my work on my{" "}
-            <Link href="https://www.github.com/jamilettel" target="_blank">
+            <Link
+              className="white-link"
+              href="https://www.github.com/jamilettel"
+              target="_blank"
+            >
               Github ↗
             </Link>
           </p>
