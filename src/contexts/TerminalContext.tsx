@@ -141,8 +141,9 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
       }
 
       let currentPath: string[] = [];
-      if (cmdPath[0] && !cmdPath[0].startsWith("/"))
-        currentPathname
+      console.log(cmdPath);
+      if (!cmdPath.length || !cmdPath[0].startsWith("/"))
+        currentPath = currentPathname
           .replaceAll("/", " ")
           .trim()
           .split(" ")
