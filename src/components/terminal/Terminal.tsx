@@ -6,36 +6,37 @@ import "./Terminal.scss";
 import TerminalInput from "@/components/terminal/TerminalInput";
 import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname } from "next/navigation";
-
-type TerminalLog = {
-  command: string | null;
-  commandOrigin: string | null;
-  output: string;
-};
+import { useTerminalContext } from "@/contexts/TerminalContext";
 
 export default function Terminal() {
   const [input, setInput] = useState("");
-  const [log, setLog] = useState<TerminalLog[]>([]);
+  const { log, addLog, clearLog, runCommand } = useTerminalContext();
   const pathname = usePathname();
-  const page = getIdFromPathname(pathname);
 
   return (
     <TerminalInputManager
       input={input}
       onSubmit={(input) => {
-        setLog((log) => [
-          ...log,
-          { command: input, commandOrigin: page, output: "" },
-        ]);
+        if (!input.length) {
+          addLog({
+            command: input,
+            commandOrigin: getIdFromPathname(pathname),
+            output: "",
+          });
+        } else {
+          runCommand(input);
+        }
         setInput("");
       }}
       onCancel={(input) => {
-        setLog((log) => [
-          ...log,
-          { command: input + "^C", commandOrigin: page, output: "" },
-        ]);
+        addLog({
+          command: input + "^C",
+          commandOrigin: getIdFromPathname(pathname),
+          output: "",
+        });
         setInput("");
       }}
+      onClear={() => clearLog()}
       setInput={setInput}
     >
       {log.map((log, index) => (

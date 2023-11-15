@@ -35,11 +35,13 @@ export default function TerminalInputManager({
   onSubmit,
   children,
   onCancel,
+  onClear,
 }: {
   input: string;
   setInput: (input: string) => void;
   onSubmit: (input: string) => void;
   onCancel: (input: string) => void;
+  onClear: () => void;
   children?: React.ReactNode;
 }) {
   const [focused, setFocused] = useState(false);
@@ -65,6 +67,9 @@ export default function TerminalInputManager({
 
     if ((key === "C" || key === "c") && ctrl) {
       onCancel(input);
+    } else if (key === "l" && ctrl) {
+      onClear();
+      return true;
     } else if (key.length === 1) {
       addLetter(key);
     } else if (key === "ArrowLeft") {

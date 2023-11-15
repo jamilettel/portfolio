@@ -2,6 +2,7 @@ import { TransitionProvider } from "@/contexts/TransitionContext";
 import type { Metadata } from "next";
 import "./globals.scss";
 import { mono } from "@/utils/fonts";
+import { TerminalProvider } from "@/contexts/TerminalContext";
 
 export const metadata: Metadata = {
   title: "Jamil Ettel - Portfolio",
@@ -73,7 +74,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mono.className}>
-        <TransitionProvider>{children}</TransitionProvider>
+        <TransitionProvider>
+          <TerminalProvider>{children}</TerminalProvider>
+        </TransitionProvider>
       </body>
     </html>
   );
