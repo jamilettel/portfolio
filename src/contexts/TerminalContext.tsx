@@ -171,12 +171,7 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
       );
     },
     cd: (cmd: string[], currentPathname: string) => {
-      if (cmd.includes("--help") || cmd.includes("-h")) {
-        return LS_HELP;
-      }
-      let cmdPath = cmd
-        .filter((c) => !c.startsWith("-"))
-        .filter((c) => c !== "cd");
+      let cmdPath = cmd.filter((c) => c !== "cd");
       let lsPath: string[] = [];
       if (cmdPath.length > 1) {
         return `cd: error: too many arguments`;
@@ -203,7 +198,7 @@ function TerminalProvider({ children }: { children: React.ReactNode }) {
         } else if (path === ".") {
           continue;
         } else if (!checkPathExists([...currentPath, path])) {
-          return `cd: cannot access '${cmdPath[0]}': No such file or directory`;
+          return `cd: no such file or directory: ${cmdPath[0]}`;
         } else {
           currentPath.push(path);
         }
