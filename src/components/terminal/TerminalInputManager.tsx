@@ -1,10 +1,10 @@
 "use client";
 
 import TerminalInput from "@/components/terminal/TerminalInput";
+import { getIdFromPathname } from "@/utils/animated-utils";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import "./Terminal.scss";
-import { usePathname } from "next/navigation";
-import { getIdFromPathname } from "@/utils/animated-utils";
 
 function moveCaretWithCtrl(
   input: string,
@@ -53,8 +53,8 @@ export default function TerminalInputManager({
   function addLetter(letter: string) {
     setInput(
       input.slice(0, input.length - inputIndex) +
-        letter +
-        input.slice(input.length - inputIndex)
+      letter +
+      input.slice(input.length - inputIndex)
     );
   }
 
@@ -65,13 +65,12 @@ export default function TerminalInputManager({
   ): boolean {
     let amount = 1;
 
-    if ((key === "C" || key === "c") && ctrl) {
+    if (key === "c" && ctrl) {
       onCancel(input);
+      setInputIndex(0);
     } else if (key === "l" && ctrl) {
       onClear();
       return true;
-    } else if (key.length === 1) {
-      addLetter(key);
     } else if (key === "ArrowLeft") {
       if (shift) {
         addLetter("D");
@@ -100,7 +99,7 @@ export default function TerminalInputManager({
       }
       setInput(
         input.slice(0, Math.max(0, input.length - inputIndex - amount)) +
-          input.slice(input.length - inputIndex)
+        input.slice(input.length - inputIndex)
       );
       setInputIndex(Math.min(inputIndex, input.length));
     } else if (key === "Delete") {
@@ -109,12 +108,16 @@ export default function TerminalInputManager({
       }
       setInput(
         input.slice(0, Math.max(0, input.length - inputIndex)) +
-          input.slice(input.length - inputIndex + amount)
+        input.slice(input.length - inputIndex + amount)
       );
       setInputIndex(Math.max(0, inputIndex - amount));
     } else if (key === "Enter") {
       onSubmit(input);
+      setInputIndex(0);
+    } else if (key.length === 1) {
+      addLetter(key);
     }
+
     if (blink) {
       setBlink(false);
       setTimeout(() => {
