@@ -62,7 +62,7 @@ export default function Home() {
       <div className={`links ${shareTechMono.className}`}>
         <div className="erase-animation">Choose a page...</div>
         <AnimatedLink className="erase-animation" href="/work">
-          {"> my_work"}
+          {"> work"}
         </AnimatedLink>
         <br />
         <AnimatedLink className="erase-animation" href="/contact">
