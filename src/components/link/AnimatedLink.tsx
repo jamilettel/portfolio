@@ -1,6 +1,5 @@
 "use client";
 import { useTransitionContext } from "@/contexts/TransitionContext";
-import { getIdFromPathname } from "@/utils/animated-utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

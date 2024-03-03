@@ -1,7 +1,7 @@
 "use client";
 import { getIdFromPathname } from "@/utils/animated-utils";
 import { usePathname } from "next/navigation";
-import React, { createContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 type ScrollPosition = {
   top: number;

@@ -1,0 +1,50 @@
+@import "animations";
+@import "base";
+
+.contact-content.animate-out-about {
+  .content {
+    @include transition-right-out;
+  }
+}
+.contact-content.animate-in-about {
+  .content {
+    @include transition-right-in;
+  }
+}
+.contact-content.animate-out-work {
+  .content {
+    @include transition-left-out;
+  }
+}
+.contact-content.animate-in-work {
+  .content {
+    @include transition-left-in;
+  }
+}
+
+.blog-content .page-content {
+  a {
+    color: $blog-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  h2 {
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .email-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .white {
+    color: white;
+  }
+}

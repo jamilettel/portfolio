@@ -80,9 +80,7 @@
     z-index: 1;
   }
 
-  .transition-work-title,
-  .transition-contact-title,
-  .transition-about-title {
+  .transition-title {
     display: none;
   }
 }
@@ -214,7 +212,8 @@
 
 .animate-out-work,
 .animate-out-contact,
-.animate-out-about {
+.animate-out-about,
+.animate-out-blog {
   .title-underscore {
     animation-name: underscore-down, underscore-widen, underscore-fill-height,
       underscore-move-up, underscore-change-color, underscore-final-position,
@@ -261,9 +260,7 @@
   }
 }
 
-.transition-work-title,
-.transition-contact-title,
-.transition-about-title {
+.transition-title {
   position: absolute;
   top: 0;
   left: 50%;
@@ -308,9 +305,18 @@
   }
 }
 
+.animate-out-blog {
+  --new-background: #{$blog-color};
+
+  .transition-blog-title {
+    display: flex;
+  }
+}
+
 .animate-in-about,
 .animate-in-work,
-.animate-in-contact {
+.animate-in-contact,
+.animate-in-blog {
   .title-wrapper,
   .subtitle {
     opacity: 0;
@@ -368,7 +374,8 @@
 
 .animate-out-about,
 .animate-out-work,
-.animate-out-contact {
+.animate-out-contact,
+.animate-out-blog {
   .content-mask {
     position: absolute;
 

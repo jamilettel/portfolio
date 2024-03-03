@@ -72,17 +72,17 @@ export const metadata: Metadata = {
 const TRANSITIONS: TransitionLength[] = [
   {
     from: ["/"],
-    to: ["/work", "/about", "/contact"],
+    to: ["/work", "/about", "/contact", "/blog"],
     duration: 2500,
   },
   {
-    from: ["/work", "/about", "/contact"],
+    from: ["/work", "/about", "/contact", "/blog"],
     to: ["/"],
     duration: 2800,
   },
   {
-    from: ["/work", "/about", "/contact"],
-    to: ["/work", "/about", "/contact"],
+    from: ["/work", "/about", "/contact", "/blog"],
+    to: ["/work", "/about", "/contact", "/blog"],
     duration: 1000,
   },
 ];

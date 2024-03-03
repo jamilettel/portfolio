@@ -32,7 +32,8 @@
 
 .animate-in-about,
 .animate-in-work,
-.animate-in-contact {
+.animate-in-contact,
+.animate-in-blog {
   .links .erase-animation {
     @include erase-animation-reverse(relative, 500ms, 1400ms);
   }

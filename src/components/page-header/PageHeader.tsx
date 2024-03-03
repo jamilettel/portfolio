@@ -12,28 +12,35 @@ export default function PageHeader({
 }: {
   title: string;
   backgroundClassName: string;
-  previousPageHref: string;
-  previousPageTitle: string;
-  nextPageHref: string;
-  nextPageTitle: string;
+  previousPageHref?: string;
+  previousPageTitle?: string;
+  nextPageHref?: string;
+  nextPageTitle?: string;
 }) {
   return (
     <>
       <div className="content-mask" />
       <div className={`page-header ${shareTechMono.className}`}>
         <div className={`page-header-background ${backgroundClassName}`}></div>
-        <AnimatedLink
-          className="page-header-button-left"
-          href={previousPageHref}
-        >
-          {"< "}
-          {previousPageTitle}
-        </AnimatedLink>
+        {previousPageHref && (
+          <AnimatedLink
+            className="page-header-button-left"
+            href={previousPageHref}
+          >
+            {"< "}
+            {previousPageTitle}
+          </AnimatedLink>
+        )}
         <h1 className={rubikMonoOne.className}>{title}</h1>
-        <AnimatedLink className="page-header-button-right" href={nextPageHref}>
-          {nextPageTitle}
-          {" >"}
-        </AnimatedLink>
+        {nextPageHref && (
+          <AnimatedLink
+            className="page-header-button-right"
+            href={nextPageHref}
+          >
+            {nextPageTitle}
+            {" >"}
+          </AnimatedLink>
+        )}
         <AnimatedLink className="page-header-home-button" href="/">
           GO BACK
         </AnimatedLink>

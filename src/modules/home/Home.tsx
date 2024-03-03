@@ -35,15 +35,19 @@ function HomePageTitle() {
         </h1>
         <OtherPageTitle
           title="WORK"
-          className={`${rubikMonoOne.className} transition-work-title`}
+          className={`${rubikMonoOne.className} transition-title transition-work-title`}
         />
         <OtherPageTitle
           title="CONTACT"
-          className={`${rubikMonoOne.className} transition-contact-title`}
+          className={`${rubikMonoOne.className} transition-title transition-contact-title`}
         />
         <OtherPageTitle
           title="ABOUT"
-          className={`${rubikMonoOne.className} transition-about-title`}
+          className={`${rubikMonoOne.className} transition-title transition-about-title`}
+        />
+        <OtherPageTitle
+          title="BLOG"
+          className={`${rubikMonoOne.className} transition-title transition-blog-title`}
         />
         <div className="title-underscore" />
       </div>
@@ -71,6 +75,10 @@ export default function Home() {
         <br />
         <AnimatedLink className="erase-animation" href="/about">
           {"> about"}
+        </AnimatedLink>
+        <br />
+        <AnimatedLink className="erase-animation" href="/blog">
+          {"> blog"}
         </AnimatedLink>
       </div>
     </Layout>
