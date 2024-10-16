@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import PageHeader from "@/components/page-header/PageHeader";
 import Link from "next/link";
 import "./About.scss";
+import moment from "moment";
 
 export default function About() {
   return (
@@ -22,21 +23,21 @@ export default function About() {
             <h3>NAME:</h3>
             <p>JAMIL ETTEL</p>
             <h3>AGE:</h3>
-            <p>23</p>
+            <p>{moment().diff(moment("16/04/2000", "DD/MM/YYYY"), "years")}</p>
             <h3>LOCATION:</h3>
             <p>NANTES, FRANCE</p>
             <h3>JOB EXPERIENCE:</h3>
             <p>3 YEARS</p>
             <h3>HOBBIES:</h3>
-            <p>POWERLIFTING / SQUASH / COFFEE</p>
+            <p>POWERLIFTING / COFFEE</p>
             <h3>EMPLOYER:</h3>
             <p>
               <Link
                 className="white-link"
-                href="https://codidae.fr"
+                href="https://molecular.paris"
                 target="_blank"
               >
-                CODIDAE ↗
+                MOLECULAR ↗
               </Link>
             </p>
           </div>
@@ -44,7 +45,7 @@ export default function About() {
         <div className="about-section">
           <h3>ABOUT</h3>
           <p>
-            Hey! My name is Jamil Ettel. {"I'm"} a software developer with 3
+            Hey! My name is Jamil Ettel. I&apos;m a software developer with 4
             years of experience. I love working on UI/UX and animations, but I
             am also good at backend and software development in general.
           </p>
