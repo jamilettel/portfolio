@@ -6,6 +6,8 @@ import "./About.scss";
 import moment from "moment";
 
 export default function About() {
+  const YEARS_OF_EXPERIENCE = 4;
+
   return (
     <Layout className="about-content">
       <PageHeader
@@ -27,7 +29,7 @@ export default function About() {
             <h3>LOCATION:</h3>
             <p>NANTES, FRANCE</p>
             <h3>JOB EXPERIENCE:</h3>
-            <p>3 YEARS</p>
+            <p>{YEARS_OF_EXPERIENCE} YEARS</p>
             <h3>HOBBIES:</h3>
             <p>POWERLIFTING / COFFEE</p>
             <h3>EMPLOYER:</h3>
@@ -45,7 +47,8 @@ export default function About() {
         <div className="about-section">
           <h3>ABOUT</h3>
           <p>
-            Hey! My name is Jamil Ettel. I&apos;m a software developer with 4
+            Hey! My name is Jamil Ettel. I&apos;m a software developer with{" "}
+            {YEARS_OF_EXPERIENCE}
             years of experience. I love working on UI/UX and animations, but I
             am also good at backend and software development in general.
           </p>
